@@ -4,6 +4,8 @@ module JavaFx_Study {
 	requires javafx.graphics;
 	requires javafx.base;
 	requires java.sql;
+	requires mail;
+	requires java.base;
 	
 	opens application to javafx.graphics, javafx.fxml;
 	opens Day01 to javafx.graphics, javafx.fxml;

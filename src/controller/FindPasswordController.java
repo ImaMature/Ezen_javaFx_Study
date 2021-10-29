@@ -4,6 +4,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import dao.MemberDao;
+import domain.Member;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -47,7 +48,9 @@ public class FindPasswordController implements Initializable{
 	    void findpassword(ActionEvent event) {
 	    	String result = MemberDao.getMemberDao().findpassword(txtid.getText(), txtemail.getText());
 	    	if (result != null) {
-	    		lblconfirm.setText("회원님의 비밀번호 : " + result);
+	    		//메일 전송
+	    		Member.sendmail(txtemail.getText(), result, 2);
+	    		lblconfirm.setText("이메일로 전송했습니다.");
 	    	}else {
 	    		lblconfirm.setText("일치하는 비밀번호가 없습니다.");
 	    	}
