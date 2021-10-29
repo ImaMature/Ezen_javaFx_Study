@@ -106,7 +106,7 @@ public class MemberDao {
 		public String findid(String name, String email) {
 			
 			//1. SQL 작성
-			String sql = "select m_id from member where name=? and email=?";
+			String sql = "select m_id from member where m_name=? and m_email=?";
 			//2. SQL -> DB연결
 			try {
 				preparedStatement = connection.prepareStatement(sql);
@@ -128,6 +128,28 @@ public class MemberDao {
 		}
 		
 		//4.패스워드 찾기 메소드
+		public String findpassword(String id, String email) {
+			//1. sql 작성
+			String sql = "select m_password from member where m_id=? and m_email=?";
+			//2. DB연결
+			try {
+				preparedStatement = connection.prepareStatement(sql);
+				//3. SQL설정
+				preparedStatement.setString(1, id);
+				preparedStatement.setString(2, email);
+				//4. query
+				resultSet = preparedStatement.executeQuery();
+				//5. 결과
+				if(resultSet.next()) {
+					return resultSet.getString(1);
+				}
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				return null;
+			}
+			return null;
+			
+		}
 		//5.회원수정 메소드
 		//6.회원탈퇴 메소드
 	

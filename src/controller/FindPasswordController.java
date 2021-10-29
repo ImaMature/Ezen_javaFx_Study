@@ -1,5 +1,6 @@
 package controller;
 
+import dao.MemberDao;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -35,7 +36,12 @@ public class FindPasswordController {
 
 	    @FXML
 	    void findpassword(ActionEvent event) {
-
+	    	String result = MemberDao.getMemberDao().findpassword(txtid.getText(), txtemail.getText());
+	    	if (result != null) {
+	    		lblconfirm.setText("회원님의 비밀번호 : " + result);
+	    	}else {
+	    		lblconfirm.setText("일치하는 비밀번호가 없습니다.");
+	    	}
 	    }
 
 }
