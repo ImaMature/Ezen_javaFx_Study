@@ -95,7 +95,7 @@ public class MemberDao {
 				if(resultSet.next()) { // 쿼리 결과에 다음 내용이 있으면 true 없으면 false
 					return true; // 결과에 다음내용이 있어서 로그인 성공
 				}else {
-					return false;
+					return false; // 로그인 실패
 				}
 			} catch (Exception e) {
 			
@@ -103,7 +103,29 @@ public class MemberDao {
 			return false; // DB 오류
 			}
 		//3.아이디찾기 메소드
+		public String findid(String name, String email) {
 			
+			//1. SQL 작성
+			String sql = "select m_id from member where name=? and email=?";
+			//2. SQL -> DB연결
+			try {
+				preparedStatement = connection.prepareStatement(sql);
+				//3. SQL 설정
+				preparedStatement.setString(1, name);
+				preparedStatement.setString(2, email);
+				//4. SQL 실행
+				resultSet = preparedStatement.executeQuery();
+				//5. SQL 결과
+				if(resultSet.next()) { // next 다음거 찾는거
+					//검색결과가 있으면
+					return resultSet.getString(1);
+				}else {
+					return null; // 검색결과가 없으면 null 반환
+				}
+			} catch (Exception e) {
+				return null; // DB 오류
+			}
+		}
 		
 		//4.패스워드 찾기 메소드
 		//5.회원수정 메소드
