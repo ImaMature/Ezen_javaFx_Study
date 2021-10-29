@@ -1,8 +1,12 @@
 package controller;
 
+import java.net.URL;
+import java.util.ResourceBundle;
+
 import domain.Member;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
@@ -13,8 +17,11 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 
-public class SignupController {
-	
+public class SignupController implements Initializable{
+	@Override
+	public void initialize(URL arg0, ResourceBundle arg1) { // 로그인 실패 레이블의 초기값을 없애려고 하는 것
+		lblconfirm.setText("");
+	}
 	
 	  @FXML
 	    private Button btinsignup;
