@@ -12,7 +12,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:controller="controller.SignupController" fx:id="signuppane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SignupController">
+<AnchorPane fx:id="signuppane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SignupController">
    <children>
       <ImageView fitHeight="600.0" fitWidth="1000.0" pickOnBounds="true">
          <image>
@@ -21,12 +21,12 @@
       </ImageView>
       <AnchorPane layoutX="112.0" layoutY="86.0" prefHeight="430.0" prefWidth="300.0" style="-fx-background-color: #FAFAFA; -fx-background-radius: 30;">
          <children>
-            <TextField layoutX="25.0" layoutY="88.0" minHeight="31.0" prefHeight="30.0" prefWidth="250.0" promptText="User ID">
+            <TextField fx:id="txtid" layoutX="25.0" layoutY="88.0" minHeight="31.0" prefHeight="30.0" prefWidth="250.0" promptText="User ID">
                <font>
                   <Font name="Noto Sans Korean Medium" size="16.0" />
                </font>
             </TextField>
-            <PasswordField layoutX="25.0" layoutY="128.0" minHeight="31.0" prefHeight="30.0" prefWidth="250.0" promptText="User Password">
+            <PasswordField fx:id="txtpassword" layoutX="25.0" layoutY="128.0" minHeight="31.0" prefHeight="30.0" prefWidth="250.0" promptText="User Password">
                <font>
                   <Font name="Noto Sans Korean Medium" size="16.0" />
                </font>
@@ -37,7 +37,7 @@
                </font>
             </Label>
             <Line endX="125.0" layoutX="161.0" layoutY="307.0" startX="-148.0" stroke="#b3b8bc" />
-            <Label layoutX="64.0" layoutY="378.0" onMouseClicked="#back" text="동일한 정보가 없습니다." textFill="#f80000">
+            <Label fx:id="lblconfirm" layoutX="64.0" layoutY="378.0" onMouseClicked="#back" text="동일한 정보가 없습니다." textFill="#f80000">
                <font>
                   <Font name="Noto Sans Korean Regular" size="17.0" />
                </font>
@@ -47,22 +47,22 @@
                   <Image url="@login_airplane.png" />
                </image>
             </ImageView>
-            <Button layoutX="80.0" layoutY="323.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="139.0" style="-fx-background-color: #04B431;" text="새 계정 만들기" textFill="WHITE">
+            <Button fx:id="btinsignup" layoutX="80.0" layoutY="323.0" mnemonicParsing="false" onAction="#signup" prefHeight="41.0" prefWidth="139.0" style="-fx-background-color: #04B431;" text="새 계정 만들기" textFill="WHITE">
                <font>
                   <Font name="Noto Sans Korean Medium" size="17.0" />
                </font>
             </Button>
-            <PasswordField layoutX="25.0" layoutY="168.0" minHeight="31.0" prefHeight="30.0" prefWidth="250.0" promptText="User Password confirm">
+            <PasswordField fx:id="txtpasswordconfirm" layoutX="25.0" layoutY="168.0" minHeight="31.0" prefHeight="30.0" prefWidth="250.0" promptText="User Password confirm">
                <font>
                   <Font name="Noto Sans Korean Medium" size="16.0" />
                </font>
             </PasswordField>
-            <TextField layoutX="25.0" layoutY="208.0" minHeight="31.0" prefHeight="30.0" prefWidth="250.0" promptText="User Name">
+            <TextField fx:id="txtname" layoutX="25.0" layoutY="208.0" minHeight="31.0" prefHeight="30.0" prefWidth="250.0" promptText="User Name">
                <font>
                   <Font name="Noto Sans Korean Medium" size="16.0" />
                </font>
             </TextField>
-            <TextField layoutX="25.0" layoutY="248.0" minHeight="31.0" prefHeight="30.0" prefWidth="250.0" promptText="User Email">
+            <TextField fx:id="txtemail" layoutX="25.0" layoutY="248.0" minHeight="31.0" prefHeight="30.0" prefWidth="250.0" promptText="User Email">
                <font>
                   <Font name="Noto Sans Korean Medium" size="16.0" />
                </font>

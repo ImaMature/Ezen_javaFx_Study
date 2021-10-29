@@ -8,78 +8,73 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="mainboardpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
-   <center>
-      <AnchorPane fx:id="signuppane" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+<AnchorPane fx:id="signuppane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SignupController">
+   <children>
+      <ImageView fitHeight="600.0" fitWidth="1000.0" pickOnBounds="true">
+         <image>
+            <Image url="@loginTheme.jpg" />
+         </image>
+      </ImageView>
+      <AnchorPane layoutX="112.0" layoutY="86.0" prefHeight="430.0" prefWidth="300.0" style="-fx-background-color: #FAFAFA; -fx-background-radius: 30;">
          <children>
-            <ImageView fitHeight="600.0" fitWidth="1000.0" pickOnBounds="true">
+            <TextField fx:id="txtid" layoutX="25.0" layoutY="88.0" minHeight="31.0" prefHeight="30.0" prefWidth="250.0" promptText="User ID">
+               <font>
+                  <Font name="Noto Sans Korean Medium" size="16.0" />
+               </font>
+            </TextField>
+            <PasswordField fx:id="txtpassword" layoutX="25.0" layoutY="128.0" minHeight="31.0" prefHeight="30.0" prefWidth="250.0" promptText="User Password">
+               <font>
+                  <Font name="Noto Sans Korean Medium" size="16.0" />
+               </font>
+            </PasswordField>
+            <Label fx:id="btnback" layoutX="211.0" layoutY="22.0" onMouseClicked="#back" text="뒤로가기 →" textFill="#0080ff">
+               <font>
+                  <Font name="Noto Sans Korean Medium" size="14.0" />
+               </font>
+            </Label>
+            <Line endX="125.0" layoutX="161.0" layoutY="307.0" startX="-148.0" stroke="#b3b8bc" />
+            <Label fx:id="lblconfirm" layoutX="64.0" layoutY="378.0" onMouseClicked="#back" text="동일한 정보가 없습니다." textFill="#f80000">
+               <font>
+                  <Font name="Noto Sans Korean Regular" size="17.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="64.0" fitWidth="88.0" layoutX="118.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@loginTheme.jpg" />
+                  <Image url="@login_airplane.png" />
                </image>
             </ImageView>
-            <AnchorPane layoutX="112.0" layoutY="86.0" prefHeight="430.0" prefWidth="300.0" style="-fx-background-color: #FAFAFA; -fx-background-radius: 30;">
-               <children>
-                  <TextField layoutX="25.0" layoutY="88.0" minHeight="31.0" prefHeight="30.0" prefWidth="250.0" promptText="User ID">
-                     <font>
-                        <Font name="Noto Sans Korean Medium" size="16.0" />
-                     </font>
-                  </TextField>
-                  <PasswordField layoutX="25.0" layoutY="128.0" minHeight="31.0" prefHeight="30.0" prefWidth="250.0" promptText="User Password">
-                     <font>
-                        <Font name="Noto Sans Korean Medium" size="16.0" />
-                     </font>
-                  </PasswordField>
-                  <Label fx:id="btnback" layoutX="211.0" layoutY="22.0" onMouseClicked="#back" text="뒤로가기 →" textFill="#0080ff">
-                     <font>
-                        <Font name="Noto Sans Korean Medium" size="14.0" />
-                     </font>
-                  </Label>
-                  <Line endX="125.0" layoutX="161.0" layoutY="307.0" startX="-148.0" stroke="#b3b8bc" />
-                  <Label layoutX="64.0" layoutY="378.0" onMouseClicked="#back" text="동일한 정보가 없습니다." textAlignment="CENTER" textFill="#f80000">
-                     <font>
-                        <Font name="Noto Sans Korean Regular" size="17.0" />
-                     </font>
-                  </Label>
-                  <ImageView fitHeight="64.0" fitWidth="88.0" layoutX="118.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@login_airplane.png" />
-                     </image>
-                  </ImageView>
-                  <Button layoutX="80.0" layoutY="323.0" mnemonicParsing="false" onMouseClicked="#signup" prefHeight="41.0" prefWidth="139.0" style="-fx-background-color: #04B431;" text="새 계정 만들기" textFill="WHITE">
-                     <font>
-                        <Font name="Noto Sans Korean Medium" size="17.0" />
-                     </font>
-                  </Button>
-                  <PasswordField layoutX="25.0" layoutY="168.0" minHeight="31.0" prefHeight="30.0" prefWidth="250.0" promptText="User Password confirm">
-                     <font>
-                        <Font name="Noto Sans Korean Medium" size="16.0" />
-                     </font>
-                  </PasswordField>
-                  <PasswordField layoutX="25.0" layoutY="249.0" minHeight="31.0" prefHeight="30.0" prefWidth="250.0" promptText="User Email">
-                     <font>
-                        <Font name="Noto Sans Korean Medium" size="16.0" />
-                     </font>
-                  </PasswordField>
-                  <PasswordField layoutX="25.0" layoutY="208.0" minHeight="31.0" prefHeight="30.0" prefWidth="250.0" promptText="User Name">
-                     <font>
-                        <Font name="Noto Sans Korean Medium" size="16.0" />
-                     </font>
-                  </PasswordField>
-               </children>
-               <effect>
-                  <DropShadow height="10.75" offsetY="5.0" radius="5.970000000000001" width="15.13">
-                     <color>
-                        <Color red="0.34210526943206787" green="0.3405214548110962" blue="0.3405214548110962" />
-                     </color>
-                  </DropShadow>
-               </effect>
-            </AnchorPane>
+            <Button fx:id="btinsignup" layoutX="80.0" layoutY="323.0" mnemonicParsing="false" onAction="#signup" prefHeight="41.0" prefWidth="139.0" style="-fx-background-color: #04B431;" text="새 계정 만들기" textFill="WHITE">
+               <font>
+                  <Font name="Noto Sans Korean Medium" size="17.0" />
+               </font>
+            </Button>
+            <PasswordField fx:id="txtpasswordconfirm" layoutX="25.0" layoutY="168.0" minHeight="31.0" prefHeight="30.0" prefWidth="250.0" promptText="User Password confirm">
+               <font>
+                  <Font name="Noto Sans Korean Medium" size="16.0" />
+               </font>
+            </PasswordField>
+            <TextField fx:id="txtname" layoutX="25.0" layoutY="208.0" minHeight="31.0" prefHeight="30.0" prefWidth="250.0" promptText="User Name">
+               <font>
+                  <Font name="Noto Sans Korean Medium" size="16.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="txtemail" layoutX="25.0" layoutY="248.0" minHeight="31.0" prefHeight="30.0" prefWidth="250.0" promptText="User Email">
+               <font>
+                  <Font name="Noto Sans Korean Medium" size="16.0" />
+               </font>
+            </TextField>
          </children>
+         <effect>
+            <DropShadow height="10.75" offsetY="5.0" radius="5.970000000000001" width="15.13">
+               <color>
+                  <Color red="0.34210526943206787" green="0.3405214548110962" blue="0.3405214548110962" />
+               </color>
+            </DropShadow>
+         </effect>
       </AnchorPane>
-   </center>
-</BorderPane>
+   </children>
+</AnchorPane>
