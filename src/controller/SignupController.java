@@ -3,6 +3,7 @@ package controller;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import dao.MemberDao;
 import domain.Member;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -88,9 +89,10 @@ public class SignupController implements Initializable{
 	    	//3. 객체화
 	    	Member member = new Member(txtid.getText(), txtpassword.getText(), txtname.getText(), txtemail.getText());
 	    	
-	    	//4. 파일 혹은 DB처리
-	    	
-	    	
+	    	//4. 파일 혹은 DB처리 (메소드화)
+	    	boolean result = MemberDao.getMemberDao().signup(member);// MemberDao에 signup메소드에 member를 던져줌(호출)
+	    	if(result) { //true 값 리턴시
+	    		
 	    	//5. 메시지 창 띄우고 페이지 전환
 	    	lblconfirm.setText("가입해주셔서 감사합니다."); // 라벨바꾸는거
 	    	
@@ -102,6 +104,9 @@ public class SignupController implements Initializable{
 		    	LoginController.getinstance().loadpage("login");
 		    	
 	    	
+	    	}else { // false값 리턴시
+	    		lblconfirm.setText("회원가입 실패 [ 관리자에게 문의 ]");
+	    	}
 	    }
 
 	    @FXML

@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import dao.MemberDao;
+import domain.Member;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -62,21 +64,31 @@ public class LoginController implements Initializable{
 
 	    @FXML
 	    void findid(MouseEvent event) {
-
+	    	loadpage("findid");
 	    }
 
 	    @FXML
 	    void findpassword(MouseEvent event) {
-
+	    	loadpage("findpassword");
 	    }
 
 	    @FXML
 	    void login(ActionEvent event) {
-	    	if(txtid.getText().equals("admin") && txtpassword.getText().equals("1234")) {
+	    	//1. Dao객체 메소드 호출
+	    	boolean result = MemberDao.getMemberDao().login(txtid.getText(), txtpassword.getText());
+	    	
+	    	//2. txt 입력된 아이디와 패스워드 회원과 동일하면 로그인 성공
+	    	if(result) {
 	    		lblconfirm.setText("로그인 성공");
 	    	}else {
 	    		lblconfirm.setText("동일한 회원정보가 없습니다.");
 	    	}
+	    	
+//	    	if(txtid.getText().equals("admin") && txtpassword.getText().equals("1234")) {
+//	    		lblconfirm.setText("로그인 성공");
+//	    	}else {
+//	    		lblconfirm.setText("동일한 회원정보가 없습니다.");
+//	    	}
 	    }
 
 	    @FXML
