@@ -3,6 +3,8 @@ package controller;
 import domain.Member;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
@@ -70,7 +72,7 @@ public class SignupController {
 	    			return;
 	    		}
 	    		//5. 이메일 길이 체크
-	    		if(txtemail.getText().length() < 5 && !txtemail.getText().contains("@")) {
+	    		if(txtemail.getText().length() < 5 || !txtemail.getText().contains("@")) {
 	    			lblconfirm.setText("이메일 형식으로 입력해주세요.");
 	    			return;
 	    		}
@@ -81,8 +83,18 @@ public class SignupController {
 	    	
 	    	//4. 파일 혹은 DB처리
 	    	
+	    	
 	    	//5. 메시지 창 띄우고 페이지 전환
-	    	lblconfirm.setText("가입해주셔서 감사합니다.");
+	    	lblconfirm.setText("가입해주셔서 감사합니다."); // 라벨바꾸는거
+	    	
+		    	Alert alert = new Alert( AlertType.INFORMATION); // 경고창 띄우기, AlertType.information은 경고 아이콘띄우기
+		    	alert.setContentText("Trip To There 가입을 축하드립니다. [포인트 1000 지급]"); // 메시지 내용
+		    	alert.setHeaderText("회원가입성공"); // 메시지 제목
+		    	alert.setTitle("알림"); // 메시지 창 제목
+		    	alert.showAndWait();// 메시지 띄우고 버튼 누르기까지 대기
+		    	LoginController.getinstance().loadpage("login");
+		    	
+	    	
 	    }
 
 	    @FXML

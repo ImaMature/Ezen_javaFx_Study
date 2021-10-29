@@ -15,7 +15,7 @@ public class Appstart extends Application{
 		Scene scene = new Scene(parent);
 		stage.setScene(scene);
 			stage.setResizable(false);
-			stage.setTitle("Trip to there");
+			stage.setTitle("Trip To There");
 			
 			Image image = new Image("C:/Users/505/git/Ezen_javaFx_Study/src/fxml/login_airplane.png");
 			stage.getIcons().add(image);
