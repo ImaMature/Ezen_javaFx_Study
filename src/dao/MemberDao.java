@@ -153,7 +153,38 @@ public class MemberDao {
 		//5.회원수정 메소드
 		//6.회원탈퇴 메소드
 	
-	
+		//7.회원조회 메소드 [ 회원 아이디를 인수로 받아 회원정보 반환 ]
+		public Member getmember (String loginid) {
+			
+			//1. SQL 작성
+			String sql = "select*from member where m_id=?";
+			//2. SQL 연결
+			try {
+				preparedStatement = connection.prepareStatement(sql);
+				//3. SQL 설정
+				preparedStatement.setString(1, loginid);
+				//4. SQL 실행
+				resultSet = preparedStatement.executeQuery();
+				//5. SQL 결과
+				if(resultSet.next()) {
+					//패스워드를 제외한 회원정보 반환
+					Member member = new Member(resultSet.getString(2), "", 
+							resultSet.getString(4),resultSet.getString(5), 
+							resultSet.getInt(6));
+					return member;
+					
+				}else {
+					return null; // 회원 정보가 없을 경우
+				}
+				
+			} catch (Exception e) {	}
+			return null; // db 오류
+			
+			
+			
+			
+			
+		}
 	
 	
 	

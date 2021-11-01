@@ -11,13 +11,16 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import javafx.stage.Stage;
 
 public class LoginController implements Initializable{
 
@@ -29,6 +32,13 @@ public class LoginController implements Initializable{
 		public static LoginController getinstance() {
 			return instance;
 		}
+		
+		// 4. 로그인시 입력된 아이디 반환 
+		public String getid() {
+			return txtid.getText();
+			
+		}
+		
 		
 		@Override
 		public void initialize(URL arg0, ResourceBundle arg1) {
@@ -80,6 +90,23 @@ public class LoginController implements Initializable{
 	    	//2. txt 입력된 아이디와 패스워드 회원과 동일하면 로그인 성공
 	    	if(result) {
 	    		lblconfirm.setText("로그인 성공");
+	    		btnlogin.getScene().getWindow().hide();
+	    		Stage stage = new Stage();
+	    		try {
+	    			Parent parent = FXMLLoader.load(getClass().getResource("/fxml/main.fxml"));
+	    			Scene scene = new Scene(parent);
+	    			stage.setScene(scene);
+	    				stage.setResizable(false);
+	    				stage.setTitle("Trip To There");
+	    				
+	    				Image image = new Image("C:\\Users\\505\\git\\Ezen_javaFx_Study\\src\\fxml\\login_airplane.png");
+	    				stage.getIcons().add(image);
+	    			stage.show();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+	    		
 	    	}else {
 	    		lblconfirm.setText("동일한 회원정보가 없습니다.");
 	    	}
@@ -97,14 +124,14 @@ public class LoginController implements Initializable{
 	    	loadpage("signup");
 	    }
 
-		public void loadpage(String page) {
-			try {
-				Parent parent = FXMLLoader.load(getClass().getResource("/fxml/"+page+".fxml"));
-				mainboardpane.setCenter(parent);
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			
-		}
+	    public void loadpage( String page ) {
+	    	try {
+	    		Parent parent = FXMLLoader.load(
+	    				getClass().getResource("/fxml/"+page+".fxml"));
+	    		mainboardpane.setCenter(parent);
+	    	}
+	    	catch (Exception e) {}
+	    }
+	  
+		
 }
