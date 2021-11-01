@@ -32,6 +32,7 @@ public class LoginController implements Initializable{
 		public static LoginController getinstance() {
 			return instance;
 		}
+		// instance = new
 		
 		// 4. 로그인시 입력된 아이디 반환 
 		public String getid() {
@@ -121,7 +122,7 @@ public class LoginController implements Initializable{
 	    @FXML
 	    void signup(MouseEvent event) {
 
-	    	loadpage("signup");
+	    	loadpage("signup"); //signup.fxml을 열겠다는 뜻
 	    }
 
 	    public void loadpage( String page ) {

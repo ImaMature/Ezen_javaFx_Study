@@ -32,7 +32,7 @@ public class MemberDao {
 				System.out.println("DB 연동 실패 : " + e);
 			}
 		}
-	//3. 메소드
+	//3. 메소드 객체화
 	public static MemberDao getMemberDao() {return memberDao;} //3.저장된 memberDao 호출
 		
 		
@@ -161,7 +161,7 @@ public class MemberDao {
 			
 			try {
 				preparedStatement = connection.prepareStatement(sql);
-				preparedStatement.setString(1, loginid);
+				preparedStatement.setString(1, loginid); // where 뒤의 객체 순서대로 숫자를 집어넣음
 				preparedStatement.executeUpdate();
 				return true; // 탈퇴 성공시
 			} catch (Exception e) {

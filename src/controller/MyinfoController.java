@@ -65,7 +65,9 @@ public class MyinfoController implements Initializable{
 	    	Optional<ButtonType> optional = alert.showAndWait();
 	    	if(optional.get() == ButtonType.OK) { // ok버튼을 누르면
 	    		//회원 탈퇴 DB에서 진행
-	    		boolean result = MemberDao.getMemberDao().delete(lblid.getId());
+	    		boolean result = MemberDao.getMemberDao().delete(lblid.getText());
+	    		//MemberDao클래스의 delete메소드 실행
+	    		//.getMemberDao는 해당 메소드를 실행하기 위해 생성한 객체 메소드
 	    		
 	    		
 	    		Alert alert2 = new Alert(AlertType.INFORMATION);
@@ -94,7 +96,7 @@ public class MyinfoController implements Initializable{
 	        		}catch(Exception e) {
 	        			
 	        		}
-	    			//MainpageController.getinstance().logout(event);
+	        		
 	    		}else {
 	    			alert2.setHeaderText("DB오류 [관리자에게 문의");
 	    			alert2.setTitle("알림");
