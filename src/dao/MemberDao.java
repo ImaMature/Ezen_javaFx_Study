@@ -151,7 +151,26 @@ public class MemberDao {
 			
 		}
 		//5.회원수정 메소드
+		
+		
 		//6.회원탈퇴 메소드
+		public boolean delete (String loginid) {
+			String sql = "delete from member where m_id=?";
+						//delete from 테이블명 (전체삭제)
+						//delete from 테이블명 where 조건
+			
+			try {
+				preparedStatement = connection.prepareStatement(sql);
+				preparedStatement.setString(1, loginid);
+				preparedStatement.executeUpdate();
+				return true; // 탈퇴 성공시
+			} catch (Exception e) {
+				System.out.println(e);
+			}
+			return false; // DB 오류
+			
+			
+		}
 	
 		//7.회원조회 메소드 [ 회원 아이디를 인수로 받아 회원정보 반환 ]
 		public Member getmember (String loginid) {
