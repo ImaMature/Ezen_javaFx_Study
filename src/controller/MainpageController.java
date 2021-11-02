@@ -67,7 +67,7 @@ public class MainpageController implements Initializable {
 
     @FXML
     void back(MouseEvent event) {
-
+    	//LoginController.getinstance().loadpage("login");
     }
 
     //¼±¾ð
@@ -106,7 +106,7 @@ public class MainpageController implements Initializable {
 
     @FXML
     void community(ActionEvent event) {
-    	loadpage("community");
+    	loadpage("boardlist");
     }
 
     @FXML
@@ -158,6 +158,6 @@ public class MainpageController implements Initializable {
 
     	loadpage("product");
     }
-
+    
 	
 }

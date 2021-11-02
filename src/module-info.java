@@ -13,4 +13,5 @@ module JavaFx_Study {
 	opens app to javafx.graphics, javafx.fxml;
 	opens controller to javafx.graphics, javafx.fxml;
 	opens dao to java.sql; //자바 클래스에 sql 연결
+	opens domain to mail, activation, javafx.base;
 }

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="760.0" style="-fx-background-color: #fafafa;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.BoardlistController">
+   <children>
+      <TableView fx:id="boardlist" layoutX="68.0" layoutY="85.0" prefHeight="423.0" prefWidth="624.0">
+        <columns>
+          <TableColumn prefWidth="60.0" style="-fx-background-color: #ffffff;" text="No." />
+          <TableColumn prefWidth="224.0" style="-fx-background-color: #ffffff;" text="Title" />
+            <TableColumn prefWidth="126.0" style="-fx-background-color: #ffffff;" text="writer" />
+            <TableColumn prefWidth="134.0" style="-fx-background-color: #ffffff;" text="Date" />
+            <TableColumn prefWidth="79.0" style="-fx-background-color: #ffffff;" text="View" />
+        </columns>
+      </TableView>
+      <Button fx:id="btnwrite" layoutX="588.0" layoutY="527.0" mnemonicParsing="false" onAction="#write" prefHeight="42.0" prefWidth="104.0" style="-fx-background-color: #0080ff;" text="Register" textFill="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+         <effect>
+            <DropShadow height="13.0" offsetY="2.0" radius="6.0" width="13.0" />
+         </effect>
+      </Button>
+      <Label layoutX="66.0" layoutY="23.0" prefHeight="42.0" prefWidth="265.0" text="Community" textFill="#909090">
+         <font>
+            <Font name="Impact" size="33.0" />
+         </font>
+      </Label>
+      <Label layoutX="233.0" layoutY="23.0" prefHeight="42.0" prefWidth="57.0" text="List" textFill="#0080ff">
+         <font>
+            <Font name="Impact" size="33.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
