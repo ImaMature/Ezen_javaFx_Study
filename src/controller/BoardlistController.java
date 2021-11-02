@@ -21,6 +21,10 @@ import javafx.scene.input.MouseEvent;
 
 
 public class BoardlistController implements Initializable{
+	
+	
+	
+	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		
@@ -53,7 +57,7 @@ public class BoardlistController implements Initializable{
 			
 												//e라는 이벤트가 클릭이면  
 			if(e.getButton().equals(MouseButton.PRIMARY)) {//PRIMARY:기본 클릭
-				Board board = boardlist.getSelectionModel().getSelectedItem();//선택된 아이템을 board에 담기
+				board = boardlist.getSelectionModel().getSelectedItem();//선택된 아이템을 board에 담기
 											//테이블 뷰에 선택된 모델의 아이템[객체]
 				//System.out.println(board.toString()); // 커뮤니티에 게시글 누르면 눌리는지 확인하는 법
 				MainpageController.getinstance().loadpage("boardview");
@@ -65,6 +69,8 @@ public class BoardlistController implements Initializable{
 				
 	}
 	
+	//현재 클래스의 객체화 (어디에 둬도 상관없음)
+	public static Board board;
 	
 	  @FXML
 	    private TableView<Board> boardlist;
