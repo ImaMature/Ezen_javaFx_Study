@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="760.0" style="-fx-background-color: #FAFAFA;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MyinfoupdateController">
+   <children>
+      <Label layoutX="257.0" layoutY="190.0" prefHeight="34.0" prefWidth="60.0" text="ID">
+         <font>
+            <Font name="Impact" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblid" layoutX="345.0" layoutY="188.0" prefHeight="34.0" prefWidth="136.0" text="Id">
+         <font>
+            <Font name="Impact" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="257.0" layoutY="235.0" prefHeight="34.0" prefWidth="60.0" text="NAME">
+         <font>
+            <Font name="Impact" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="257.0" layoutY="281.0" prefHeight="34.0" prefWidth="60.0" text="EMAIL">
+         <font>
+            <Font name="Impact" size="20.0" />
+         </font>
+      </Label>
+      <Button fx:id="btnupdate" layoutX="62.0" layoutY="407.0" mnemonicParsing="false" onAction="#update" prefHeight="52.0" prefWidth="628.0" style="-fx-background-color: #ffffff;" text="UPDATE">
+         <font>
+            <Font name="Impact" size="23.0" />
+         </font>
+         <effect>
+            <DropShadow height="13.0" offsetY="2.0" radius="8.0" />
+         </effect>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="btncancel" layoutX="62.0" layoutY="481.0" mnemonicParsing="false" onAction="#cancel" prefHeight="52.0" prefWidth="628.0" style="-fx-background-color: #ffffff;" text="BACK">
+         <font>
+            <Font name="Impact" size="23.0" />
+         </font>
+         <effect>
+            <DropShadow height="13.0" offsetY="2.0" radius="8.0" />
+         </effect>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Line endX="100.0" layoutX="156.0" layoutY="160.0" startX="-100.0" />
+      <Label layoutX="55.0" layoutY="45.0" prefHeight="34.0" prefWidth="54.0" text="My" textFill="#8a8a8a">
+         <font>
+            <Font name="Impact" size="25.0" />
+         </font>
+      </Label>
+      <Label layoutX="55.0" layoutY="76.0" prefHeight="34.0" prefWidth="157.0" text="infomation" textFill="#949494">
+         <font>
+            <Font name="Impact" size="33.0" />
+         </font>
+      </Label>
+      <Label layoutX="257.0" layoutY="326.0" prefHeight="34.0" prefWidth="60.0" text="POINT" textFill="#0080ff">
+         <font>
+            <Font name="Impact" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblpoint" layoutX="345.0" layoutY="325.0" prefHeight="34.0" prefWidth="136.0" text="point" textFill="#0080ff">
+         <font>
+            <Font name="Impact" size="13.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtname" layoutX="344.0" layoutY="234.0" prefHeight="34.0" prefWidth="161.0" />
+      <TextField fx:id="txtemail" layoutX="344.0" layoutY="281.0" prefHeight="34.0" prefWidth="161.0" />
+      <Label layoutX="55.0" layoutY="112.0" prefHeight="34.0" prefWidth="157.0" text="UPDATE" textFill="#0080ff">
+         <font>
+            <Font name="Impact" size="33.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

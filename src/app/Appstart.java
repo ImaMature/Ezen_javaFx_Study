@@ -34,3 +34,25 @@ public class Appstart extends Application{
 		launch(args);
 	}
 }
+
+
+/*1. db설계
+ * 		게시물번호 int
+ * 		게시물제목	string
+ * 		게시물내용	string
+ * 		게시물작성자 string	[로그인된 ID]
+ * 		게시물작성일 string [자동 주입]
+ * 		게시물조회수 int
+ * 2. DTO설계
+ * 3. DAO설계
+ * -------------------------------
+ * 4. FXML작성
+ * 5. CONTROLLER 작성
+ * 6. DAO 작성
+ * 
+ * DDL
+ * 			create table DB명.테이블명
+ * 			
+ *  
+ */
+		
