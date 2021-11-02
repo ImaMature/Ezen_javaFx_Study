@@ -16,6 +16,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseButton;
+import javafx.scene.input.MouseEvent;
 
 
 public class BoardlistController implements Initializable{
@@ -27,24 +29,40 @@ public class BoardlistController implements Initializable{
 		
 		//2. 테이블 뷰의 필드 가져오기
 		//현재 테이블 뷰에 0번째 컬럼값(No.)을 tc에 저장하기
-		TableColumn tc = boardlist.getColumns().get(0);
-		//tc로 b_no라고 설정하기
-		tc.setCellValueFactory(new PropertyValueFactory<>("b_no"));
+		TableColumn tc = boardlist.getColumns().get(0); // 테이블 뷰의 첫번째 필드
+		tc.setCellValueFactory(new PropertyValueFactory<>("b_no")); // 객체 내 필드명. domain패키지 Board클래스 참고
 		
-			tc = boardlist.getColumns().get(1);
+			tc = boardlist.getColumns().get(1); // 테이블 뷰의 2번째 필드
 			tc.setCellValueFactory(new PropertyValueFactory<>("b_title"));
 			
-			tc = boardlist.getColumns().get(2);
+			tc = boardlist.getColumns().get(2); // 테이블 뷰의 3번째 필드
 			tc.setCellValueFactory(new PropertyValueFactory<>("b_write"));
 			
-			tc = boardlist.getColumns().get(3);
+			tc = boardlist.getColumns().get(3); // 테이블 뷰의 4번째 필드
 			tc.setCellValueFactory(new PropertyValueFactory<>("b_date"));
 			
-			tc = boardlist.getColumns().get(4);
+			tc = boardlist.getColumns().get(4); // 테이블 뷰의 5번째 필드
 			tc.setCellValueFactory(new PropertyValueFactory<>("b_view"));
 		
-		//3.
+		//3. 테이블 뷰에 리스트 설정
 		boardlist.setItems(boards);
+		
+		//4. 클릭한 아이템을 가지고 페이지 전환
+		//인수 -> 정의 : 익명메소드(람다식)[1회성 메소드] , 반환타입 없고, public없고
+		boardlist.setOnMouseClicked(e -> {
+			
+												//e라는 이벤트가 클릭이면  
+			if(e.getButton().equals(MouseButton.PRIMARY)) {//PRIMARY:기본 클릭
+				Board board = boardlist.getSelectionModel().getSelectedItem();//선택된 아이템을 board에 담기
+											//테이블 뷰에 선택된 모델의 아이템[객체]
+				//System.out.println(board.toString()); // 커뮤니티에 게시글 누르면 눌리는지 확인하는 법
+				MainpageController.getinstance().loadpage("boardview");
+				
+				
+				//조회수 증가
+			}
+		});
+				
 	}
 	
 	

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="760.0" style="-fx-background-color: #fafafa;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.BoardviewController">
+   <children>
+      <TableView fx:id="replylist" layoutX="41.0" layoutY="312.0" prefHeight="212.0" prefWidth="680.0">
+        <columns>
+          <TableColumn prefWidth="75.0" style="-fx-background-color: #fafafa;" text="No." />
+          <TableColumn prefWidth="75.0" style="-fx-background-color: #fafafa;" text="write" />
+            <TableColumn prefWidth="182.0" style="-fx-background-color: #fafafa;" text="contents" />
+            <TableColumn prefWidth="361.0" style="-fx-background-color: #fafafa;" text="date" />
+        </columns>
+      </TableView>
+      <Button fx:id="btnupdate" layoutX="133.0" layoutY="266.0" mnemonicParsing="false" onAction="#update" prefHeight="29.0" prefWidth="76.0" style="-fx-background-color: #0080ff;" text="Update" textFill="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+         <effect>
+            <DropShadow height="13.0" offsetY="2.0" radius="6.0" width="13.0" />
+         </effect>
+      </Button>
+      <Label layoutX="46.0" layoutY="23.0" prefHeight="42.0" prefWidth="265.0" text="Community" textFill="#909090">
+         <font>
+            <Font name="Impact" size="33.0" />
+         </font>
+      </Label>
+      <Label layoutX="215.0" layoutY="23.0" prefHeight="42.0" prefWidth="76.0" text="View" textFill="#0080ff">
+         <font>
+            <Font name="Impact" size="33.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txttitle" disable="true" layoutX="41.0" layoutY="88.0" prefHeight="34.0" prefWidth="680.0" promptText="제목을 입력해주세요." />
+      <TextArea fx:id="txtcontents" disable="true" layoutX="42.0" layoutY="135.0" prefHeight="113.0" prefWidth="680.0" promptText="내용을 입력해주세요." />
+      <Button fx:id="btncancel" layoutX="618.0" layoutY="23.0" mnemonicParsing="false" onAction="#cancel" prefHeight="42.0" prefWidth="104.0" style="-fx-background-color: #0080ff;" text="Back" textFill="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+         <effect>
+            <DropShadow height="13.0" offsetY="2.0" radius="6.0" width="13.0" />
+         </effect>
+      </Button>
+      <Button fx:id="btndelete" layoutX="41.0" layoutY="266.0" mnemonicParsing="false" onAction="#delete" prefHeight="28.0" prefWidth="76.0" style="-fx-background-color: #FF2E2E;" text="Delete" textFill="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+         <effect>
+            <DropShadow height="13.0" offsetY="2.0" radius="6.0" width="13.0" />
+         </effect>
+      </Button>
+      <Button fx:id="btnreplywrite" layoutX="639.0" layoutY="276.0" mnemonicParsing="false" onAction="#replywrite" prefHeight="22.0" prefWidth="76.0" style="-fx-background-color: #0080ff;" text="Reply write" textFill="WHITE">
+         <effect>
+            <DropShadow height="13.0" offsetY="2.0" radius="6.0" width="13.0" />
+         </effect>
+      </Button>
+   </children>
+</AnchorPane>
