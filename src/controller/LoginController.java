@@ -91,6 +91,9 @@ public class LoginController implements Initializable{
 	    	//2. txt 입력된 아이디와 패스워드 회원과 동일하면 로그인 성공
 	    	if(result) {
 	    		lblconfirm.setText("로그인 성공");
+	    		
+	    		MemberDao.getMemberDao().pointupdate(txtid.getText(),10); // pointupdate메소드로 인수전달
+	    		
 	    		btnlogin.getScene().getWindow().hide();
 	    		Stage stage = new Stage();
 	    		try {

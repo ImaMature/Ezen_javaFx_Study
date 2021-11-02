@@ -128,6 +128,13 @@
       </AnchorPane>
    </left>
    <center>
-      <AnchorPane fx:id="cp" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+      <AnchorPane fx:id="cp" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="600.0" fitWidth="694.0" layoutX="-2.0" pickOnBounds="true">
+               <image>
+                  <Image url="@Bluewhite.jpg" />
+               </image>
+            </ImageView>
+         </children></AnchorPane>
    </center>
 </BorderPane>

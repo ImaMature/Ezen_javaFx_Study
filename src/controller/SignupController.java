@@ -86,6 +86,11 @@ public class SignupController implements Initializable{
 	    		}
 	    		
 	    	//2. 중복체크
+	    	boolean idcheck = MemberDao.getMemberDao().idcheck(txtid.getText());
+	    	if(idcheck) {
+	    		lblconfirm.setText("현재 사용중인 아이디입니다."); return;
+	    	}
+	    		
 	    	//3. 객체화
 	    	Member member = new Member(txtid.getText(), txtpassword.getText(), txtname.getText(), txtemail.getText());
 	    	
