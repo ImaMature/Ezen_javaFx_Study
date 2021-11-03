@@ -58,7 +58,7 @@ public class BoardDao {
 			ObservableList<Board> boards = FXCollections.observableArrayList();
 			
 			//1. 조건 없이 모두 가져오기
-			String sql = "select*from board";
+			String sql = "select*from board order by b_no desc";
 			try {
 				preparedStatement = connection.prepareStatement(sql);
 				resultSet = preparedStatement.executeQuery();
@@ -80,9 +80,31 @@ public class BoardDao {
 		}
 	
 		//3-3) 게시물 삭제 메소드
+		public boolean delete (int b_no) {
+			String sql = "delete from board where b_no = ?";
+			try {
+				preparedStatement = connection.prepareStatement(sql);
+				preparedStatement.setInt(1, b_no);
+				preparedStatement.executeUpdate();
+				return true;
+			} catch (Exception e) {	}
+			return false;
+		}
+		
 		//3-4) 게시물 수정 메소드
 		//3-5) 게시물 개별조회 메소드
-		
+		//3-6) 게시물 조회수 증감 메소드
+		public boolean viewupdate(int b_no) {
+			String sql = "update board set b_view = b_view+1 where b_no=?";
+			
+			try {
+				preparedStatement = connection.prepareStatement(sql);
+				preparedStatement.setInt(1, b_no);
+				preparedStatement.executeUpdate();
+				return true;
+			}catch(Exception e) {}
+			return false;
+		}
 	
 	
 }
