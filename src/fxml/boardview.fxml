@@ -21,13 +21,13 @@
             <TableColumn prefWidth="84.0" style="-fx-background-color: #fafafa;" text="viewcount" />
         </columns>
       </TableView>
-      <Button fx:id="btnupdate" layoutX="98.0" layoutY="320.0" mnemonicParsing="false" onAction="#update" prefHeight="29.0" prefWidth="76.0" style="-fx-background-color: #0080ff;" text="Update" textFill="WHITE">
-         <font>
-            <Font size="16.0" />
-         </font>
+      <Button fx:id="btnupdate" layoutX="564.0" layoutY="94.0" mnemonicParsing="false" onAction="#update" prefHeight="22.0" prefWidth="54.0" style="-fx-background-color: #0080ff;" text="Update" textFill="WHITE">
          <effect>
             <DropShadow height="13.0" offsetY="2.0" radius="6.0" width="13.0" />
          </effect>
+         <font>
+            <Font size="11.0" />
+         </font>
       </Button>
       <Label layoutX="30.0" layoutY="24.0" prefHeight="42.0" prefWidth="265.0" text="Community" textFill="#909090">
          <font>
@@ -39,9 +39,9 @@
             <Font name="Impact" size="33.0" />
          </font>
       </Label>
-      <TextField fx:id="txttitle" disable="true" layoutX="6.0" layoutY="141.0" prefHeight="34.0" prefWidth="680.0" promptText="제목을 입력해주세요." />
-      <TextArea fx:id="txtcontents" disable="true" layoutX="7.0" layoutY="188.0" prefHeight="113.0" prefWidth="680.0" promptText="내용을 입력해주세요." />
-      <Button fx:id="btncancel" layoutX="583.0" layoutY="23.0" mnemonicParsing="false" onAction="#cancel" prefHeight="42.0" prefWidth="104.0" style="-fx-background-color: #0080ff;" text="Back" textFill="WHITE">
+      <TextField fx:id="txttitle" editable="false" layoutX="6.0" layoutY="124.0" prefHeight="34.0" prefWidth="680.0" promptText="제목을 입력해주세요." />
+      <TextArea fx:id="txtcontents" editable="false" layoutX="7.0" layoutY="171.0" prefHeight="113.0" prefWidth="680.0" promptText="내용을 입력해주세요." />
+      <Button fx:id="btncancel" layoutX="609.0" layoutY="20.0" mnemonicParsing="false" onAction="#cancel" prefHeight="34.0" prefWidth="64.0" style="-fx-background-color: #0080ff;" text="Back" textFill="WHITE">
          <font>
             <Font size="16.0" />
          </font>
@@ -49,21 +49,20 @@
             <DropShadow height="13.0" offsetY="2.0" radius="6.0" width="13.0" />
          </effect>
       </Button>
-      <Button fx:id="btndelete" layoutX="6.0" layoutY="320.0" mnemonicParsing="false" onAction="#delete" prefHeight="28.0" prefWidth="76.0" style="-fx-background-color: #FF2E2E;" text="Delete" textFill="WHITE">
-         <font>
-            <Font size="16.0" />
-         </font>
+      <Button fx:id="btndelete" layoutX="631.0" layoutY="93.0" mnemonicParsing="false" onAction="#delete" prefHeight="22.0" prefWidth="54.0" style="-fx-background-color: #FF2E2E;" text="Delete" textFill="WHITE">
          <effect>
             <DropShadow height="13.0" offsetY="2.0" radius="6.0" width="13.0" />
          </effect>
       </Button>
-      <Button fx:id="btnreplywrite" layoutX="604.0" layoutY="330.0" mnemonicParsing="false" onAction="#replywrite" prefHeight="22.0" prefWidth="76.0" style="-fx-background-color: #0080ff;" text="Reply write" textFill="WHITE">
+      <Button fx:id="btnreplywrite" layoutX="603.0" layoutY="318.0" mnemonicParsing="false" onAction="#replywrite" prefHeight="22.0" prefWidth="76.0" style="-fx-background-color: #0080ff;" text="Reply write" textFill="WHITE">
          <effect>
             <DropShadow height="13.0" offsetY="2.0" radius="6.0" width="13.0" />
          </effect>
       </Button>
-      <Label fx:id="lblview" layoutX="583.0" layoutY="110.0" text="조회수" />
-      <Label fx:id="lblwirter" layoutX="396.0" layoutY="110.0" text="작성자" />
-      <Label fx:id="lbldate" layoutX="477.0" layoutY="110.0" text="작성일" />
+      <Label fx:id="lblview" layoutX="217.0" layoutY="98.0" text="조회수" />
+      <Label fx:id="lblwirter" layoutX="30.0" layoutY="98.0" text="작성자" />
+      <Label fx:id="lbldate" layoutX="111.0" layoutY="98.0" text="작성일" />
+      <TextArea fx:id="txtreply" layoutX="79.0" layoutY="310.0" prefHeight="38.0" prefWidth="509.0" />
+      <Label layoutX="14.0" layoutY="322.0" text="댓글쓰기" />
    </children>
 </AnchorPane>
