@@ -7,16 +7,16 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="760.0" style="-fx-background-color: #fafafa;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.BoardwriteController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="692.0" style="-fx-background-color: #fafafa;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.BoardwriteController">
    <children>
-      <TextField fx:id="txttitle" layoutX="44.0" layoutY="116.0" prefHeight="34.0" prefWidth="669.0" promptText="제목을 입력해주세요." />
-      <TextArea fx:id="txtcontents" layoutX="44.0" layoutY="165.0" prefHeight="336.0" prefWidth="669.0" promptText="내용을 입력해주세요." />
-      <Button fx:id="btnwrite" layoutX="44.0" layoutY="521.0" mnemonicParsing="false" onMouseClicked="#write" prefHeight="50.0" prefWidth="130.0" style="-fx-background-color: #0080ff;" text="등록" textFill="WHITE">
+      <TextField fx:id="txttitle" layoutX="11.0" layoutY="116.0" prefHeight="34.0" prefWidth="669.0" promptText="제목을 입력해주세요." />
+      <TextArea fx:id="txtcontents" layoutX="11.0" layoutY="165.0" prefHeight="336.0" prefWidth="669.0" promptText="내용을 입력해주세요." />
+      <Button fx:id="btnwrite" layoutX="14.0" layoutY="521.0" mnemonicParsing="false" onMouseClicked="#write" prefHeight="50.0" prefWidth="130.0" style="-fx-background-color: #0080ff;" text="등록" textFill="WHITE">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
-      <Button fx:id="btncancle" layoutX="583.0" layoutY="521.0" mnemonicParsing="false" onMouseClicked="#cancel" prefHeight="50.0" prefWidth="130.0" style="-fx-background-color: #FF2E2E;" text="취소" textFill="WHITE">
+      <Button fx:id="btncancle" layoutX="550.0" layoutY="521.0" mnemonicParsing="false" onMouseClicked="#cancel" prefHeight="50.0" prefWidth="130.0" style="-fx-background-color: #FF2E2E;" text="취소" textFill="WHITE">
          <font>
             <Font size="18.0" />
          </font>

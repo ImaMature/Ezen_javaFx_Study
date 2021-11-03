@@ -1,0 +1,17 @@
+1. Initialize
+
+1-1) 생성법
+ 접근제한자 class 클래스명 implements Initializable { ..... }
+ class 위에 import javafx.fxml.Initializable; 입력
+ ctrl + space bar -> initialize Overriding하기
+ 
+1-2) 쓰는 이유
+ UI 컨트롤의 초기화 
+ 
+2. @FXML 어노테이션
+	FXMLLoader가 FXML파일을 로딩할 때, 태그로 선언된 컨트롤 객체가 생성되면서 컨트롤러 객체도 같이 생성
+	그뒤에 @FXML 어노테이션이 적용된 필드에 컨트롤 객체가 자동으로 주입됨
+	이때, fxml코드에서 fx:id에 설정해 준 아이디와 컨트롤 객체를 주입할 필드의 이름이 같아야함
+	
+3. Controller 
+	fxml에 fx:controller속성 지정하기 fx:controller="패키지명.컨트롤러클래스명"
