@@ -17,7 +17,7 @@ public class Appstart extends Application{
 		//Font.loadFont(getClass().getResourceAsStream("C:/Users/505/git/Ezen_javaFx_Study/src/font/SEBANGGothic.ttf"), 14);
 		
 		
-		Parent parent = FXMLLoader.load(getClass().getResource("/fxml/login.fxml"));
+		Parent parent = FXMLLoader.load(getClass().getResource("/fxml/productregister.fxml"));
 		Scene scene = new Scene(parent);
 		//외부 스타일 시트 적용(css)
 		//scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());

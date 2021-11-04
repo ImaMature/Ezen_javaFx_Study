@@ -2,17 +2,20 @@ package controller;
 
 import java.io.File;
 
+import application.Main;
 import dao.MemberDao;
 import dao.ProductDao;
 import domain.Product;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
@@ -89,7 +92,7 @@ public class ProductregisterController {
 	    		}
 	    		
 	    		//로그인된 id의 회원번호 검색 db처리
-	    		int m_no = MemberDao.getMemberDao().bnocheck(MainpageController.getinstance().getloginid());
+	    		int m_no = MemberDao.getMemberDao().mnocheck(MainpageController.getinstance().getloginid());
 	    		
 	    		
 
@@ -97,7 +100,13 @@ public class ProductregisterController {
 	    	Product product = new Product(pname, pimage, pcontents, pcategory, pprice, 1, m_no); //등록시 생성자 받아옴
 	    	
 	    	//DB처리
-	    	ProductDao.getProductDao().register(product);
+	    	boolean result = ProductDao.getProductDao().register(product);
+	    	Alert alert = new Alert(AlertType.INFORMATION);
+	    	if(result) {
+	    		alert.setHeaderText("제품 등록 성공");	alert.showAndWait();
+	    		MainpageController.getinstance().loadpage("productlist");
+	    	}
+	    	
 	    }
 	    
 	    //파일 경로 찾기

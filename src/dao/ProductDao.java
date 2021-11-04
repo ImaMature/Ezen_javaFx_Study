@@ -7,6 +7,8 @@ import java.sql.ResultSet;
 
 
 import domain.Product;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 public class ProductDao {
 
@@ -48,6 +50,45 @@ public class ProductDao {
 		} catch (Exception e) {
 			return false;
 		}
+	}
+	
+	//2.제품 목록 (product테이블 전체의 행의 구성들을 하나하나씩 객체화해서 저장하기)
+	public ObservableList<Product> productlist(){
+		ObservableList<Product> products = FXCollections.observableArrayList();
+											//javafx객체를 만들려면 fxcollections을 사용
+		String sql = "select * from product order by p_no desc";
+		try {
+			preparedStatement = connection.prepareStatement(sql);
+			resultSet = preparedStatement.executeQuery();
+			while(resultSet.next()) { // 검색결과 레코드가 없을 때 까지 레코드 하나씩 객체화
+				//해당 레코드 객체화
+				Product product = new Product(resultSet.getInt(1),  //테이블의 자료형과 빼오는 자료형이 같아야됨
+											resultSet.getString(2), 
+											resultSet.getString(3), 
+											resultSet.getString(4), 
+											resultSet.getString(5),
+											resultSet.getInt(6), 
+											resultSet.getInt(7),
+											resultSet.getString(8),
+											resultSet.getInt(9));
+				//객체 리스트 저장
+				products.add(product);
+			}
+			return products;
+		} catch (Exception e) {}
+		return products;
+	}
+	
+	//3. 제품 삭제 (제품 번호의 해당하는 제품 삭제)
+	public boolean delete(int p_no) {
+		String sql = "delete from product where p_no =?"; //product테이블에 p_no
+		try {
+			preparedStatement = connection.prepareStatement(sql);
+			preparedStatement.setInt(1, p_no);
+			preparedStatement.executeUpdate();
+			return true;
+		} catch (Exception e) {}
+		return false;
 	}
 
 }

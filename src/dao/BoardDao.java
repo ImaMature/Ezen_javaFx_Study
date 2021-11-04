@@ -74,6 +74,7 @@ public class BoardDao {
 											resultSet.getInt(6));
 					boards.add(board);
 				}
+				return boards;
 			} catch (Exception e) {}
 			return boards;
 			

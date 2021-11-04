@@ -83,6 +83,7 @@ public class MainpageController implements Initializable {
     }
     
     public String getloginid() {// 로그인 레이블아이디를 빼오는 메소드
+    	System.out.println(lblloginid.getText());
     	return lblloginid.getText();
     }
     	 

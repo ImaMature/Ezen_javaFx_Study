@@ -247,7 +247,7 @@ public class MemberDao {
 	
 	
 		//10. 회원 id의 회원번호 찾기 메소드
-		public int bnocheck(String id) {
+		public int mnocheck(String id) {
 			String sql = "select m_no from member where m_id =?";
 			try {
 				preparedStatement = connection.prepareStatement(sql);
@@ -262,7 +262,20 @@ public class MemberDao {
 		}
 	
 	
-	
+		//11. 회원번호의 회원 id 찾기 메소드
+				public String midcheck(int m_no) {
+					String sql = "select m_id from member where m_no=?";
+					try {
+						preparedStatement = connection.prepareStatement(sql);
+						preparedStatement.setInt(1, m_no);
+						resultSet = preparedStatement.executeQuery();
+						if(resultSet.next()) { return resultSet.getString(1);} // 현재 아이디가 존재하면
+						else {return "";}	// 현재아이디가 존재하지 않으면
+						
+					}catch ( Exception e) {
+						return ""; //DB오류
+					}
+				}
 	
 	
 	
