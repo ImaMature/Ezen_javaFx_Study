@@ -246,7 +246,20 @@ public class MemberDao {
 		}
 	
 	
-	
+		//10. 회원 id의 회원번호 찾기 메소드
+		public int bnocheck(String id) {
+			String sql = "select m_no from member where m_id =?";
+			try {
+				preparedStatement = connection.prepareStatement(sql);
+				preparedStatement.setString(1, id);
+				resultSet = preparedStatement.executeQuery();
+				if(resultSet.next()) {
+					return resultSet.getInt(1);
+				}else {return 0;}
+			} catch (Exception e) {	}
+			return 0;
+			
+		}
 	
 	
 	

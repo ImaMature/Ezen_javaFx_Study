@@ -2,6 +2,8 @@ package controller;
 
 import java.io.File;
 
+import dao.MemberDao;
+import dao.ProductDao;
 import domain.Product;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -11,6 +13,7 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
@@ -84,10 +87,17 @@ public class ProductregisterController {
 	    		if(opt_4.isSelected()) {
 	    			pcategory="ACC";
 	    		}
-	    		int m_no = 0;
+	    		
+	    		//로그인된 id의 회원번호 검색 db처리
+	    		int m_no = MemberDao.getMemberDao().bnocheck(MainpageController.getinstance().getloginid());
+	    		
+	    		
+
 	    	//객체화 [상태 초기값을 1로 정함 ]
 	    	Product product = new Product(pname, pimage, pcontents, pcategory, pprice, 1, m_no); //등록시 생성자 받아옴
 	    	
+	    	//DB처리
+	    	ProductDao.getProductDao().register(product);
 	    }
 	    
 	    //파일 경로 찾기
@@ -106,5 +116,19 @@ public class ProductregisterController {
 	    	fileChooser.getExtensionFilters().add(new ExtensionFilter("그림파일 : Image File", "*png", "*jpg", "*gif")); //
 	    	//3. 스테이지 실행
 	    	File file = fileChooser.showOpenDialog(stage);
+	    		//* 선택한 파일을 파일클래스에 저장
+	    	lblimgpath.setText("파일 경로 : " + file.getPath()); //해당 레이블에 파일 경로가 찍히게 만듦
+	    	
+	    	pimage = file.toURI().toString();
+	    	//System.out.println("URL 경로 : " + file.getPath()); 
+		    	//url 경로 (실제 사람이 보는 경로) 
+		    	//ex) URL 경로 C:\Users\505\Downloads\Bluewhite.jpg
+	    	//System.out.println("URI 경로 : " + pimage); 
+		    	//uri 경로 (컴퓨터가 이해할 수 있는 경로) 
+		    	//ex) URI 경로 : file:/C:/Users/505/Downloads/Bluewhite.jpg
+	    	
+	    	Image image = new Image(pimage);
+	    	//Image image = new Image(file.getPath()); //위나 아래나 똑같음
+	    	pimg.setImage(image);
 	    }
 }
