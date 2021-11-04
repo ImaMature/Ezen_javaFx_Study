@@ -2,11 +2,11 @@ package domain;
 
 public class Reply {
 
-	private int r_no;
+	private int r_no; //댓글번호
 	private String r_contents;
 	private String r_write;
 	private String r_date;
-	private int b_no;
+	private int b_no; // 게시물 번호 FK
 	
 	public Reply() {}
 

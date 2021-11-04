@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="692.0" style="-fx-background-color: #fafafa; -fx-background-radius: 20;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ProductlistController">
+   <children>
+      <TableView fx:id="productlist" layoutX="257.0" layoutY="79.0" prefHeight="448.0" prefWidth="419.0" style="-fx-background-radius: 10;">
+        <columns>
+          <TableColumn prefWidth="98.0" style="-fx-background-radius: 5; -fx-background-color: #848484;" text="제품명" />
+            <TableColumn prefWidth="57.0" style="-fx-background-radius: 5; -fx-background-color: #848484;" text="카테고리" />
+            <TableColumn prefWidth="87.0" style="-fx-background-radius: 5; -fx-background-color: #848484;" text="가격" />
+            <TableColumn prefWidth="58.0" style="-fx-background-radius: 5; -fx-background-color: #848484;" text="상태" />
+            <TableColumn prefWidth="118.0" style="-fx-background-radius: 5; -fx-background-color: #848484;" text="등록날짜" />
+        </columns>
+      </TableView>
+      <Label layoutX="21.0" layoutY="27.0" prefHeight="42.0" prefWidth="265.0" text="Product" textFill="#0080ff">
+         <font>
+            <Font name="Impact" size="33.0" />
+         </font>
+      </Label>
+      <Label layoutX="140.0" layoutY="27.0" prefHeight="42.0" prefWidth="76.0" text="List" textFill="#aba9a9">
+         <font>
+            <Font name="Impact" size="33.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="pimg" fitHeight="246.0" fitWidth="227.0" layoutX="17.0" layoutY="109.0" pickOnBounds="true" preserveRatio="true" />
+      <Line endX="100.0" layoutX="134.0" layoutY="82.0" startX="-112.0" stroke="#9e9c9c" />
+      <Label fx:id="lblpname" layoutX="21.0" layoutY="382.0" text="제품명" />
+      <Label fx:id="lblpcontents" layoutX="21.0" layoutY="422.0" text="제품설명" />
+      <Label fx:id="lblpprice" layoutX="21.0" layoutY="478.0" text="제품가격" />
+      <Label fx:id="nmid" layoutX="21.0" layoutY="516.0" text="등록회원" />
+      <Button fx:id="btnupdate" layoutX="258.0" layoutY="32.0" mnemonicParsing="false" onAction="#update" prefHeight="33.0" prefWidth="76.0" style="-fx-background-color: #BDBDBD;" text="수정">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Button fx:id="btndelete" layoutX="596.0" layoutY="32.0" mnemonicParsing="false" onAction="#delete" prefHeight="33.0" prefWidth="76.0" style="-fx-background-color: #F94545;" text="삭제" textFill="#f5f5f5">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Button fx:id="btnregister" layoutX="582.0" layoutY="545.0" mnemonicParsing="false" onAction="#register" prefHeight="33.0" prefWidth="94.0" style="-fx-background-color: #0080ff;" text="제품등록" textFill="#f5f5f5">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+   </children>
+</AnchorPane>

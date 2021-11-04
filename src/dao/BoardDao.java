@@ -138,18 +138,18 @@ public class BoardDao {
 			
 		}
 		
-		//3-8) 댓글 출력 메소드
+		//3-8) 댓글 출력 메소드 (테이블뷰가 ObservableList밖에 못받아서 이거 씀)
 		public ObservableList<Reply> replylist (int b_no){
 			ObservableList<Reply> replys = FXCollections.observableArrayList();
 			
-			String sql = "select * from reply where b_no=? order by r_no desc";
+			String sql = "select * from reply where b_no=? order by r_no desc"; //reply테이블에 b_no에
 				try {
 					preparedStatement = connection.prepareStatement(sql);
 					preparedStatement.setInt(1, b_no);
 					resultSet = preparedStatement.executeQuery();
 					
-					while(resultSet.next()) { // 다음 레코드가 없을 때까지 필드값 반환
-						Reply reply = new Reply(resultSet.getInt(1), 
+					while(resultSet.next()) { // 다음 레코드가 없을 때까지 (한줄씩)
+						Reply reply = new Reply(resultSet.getInt(1), // 
 								resultSet.getString(2), 
 								resultSet.getString(3), 
 								resultSet.getString(4), 

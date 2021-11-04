@@ -42,7 +42,7 @@ public class BoardviewController implements Initializable{
 		//date는 시간까지 나옴, 날짜만 빼오고 싶을때 쓰는거 split
 		//split " " 공백을 기점으로 두조각으로 나뉘어서 인덱스 0 번째 값을 가져오기
 		//2021-11-02 15:36:54 여기 공백을 기점으로 둘로나뉘어서 0번째 날짜만 빼옴
-		lblview.setText("조회수 : " + board.getB_view());
+		lblview.setText("조회수 : " + board.getB_view() + 1);
 		
 		
 		
@@ -141,7 +141,9 @@ public class BoardviewController implements Initializable{
 	    		board.getB_no()
 	    		);
 	    
-	    boolean result = BoardDao.getBoardDao().replywrite(reply);
+	    	//DB처리
+	    	boolean result = BoardDao.getBoardDao().replywrite(reply);
+	    	
 		    if(result) {
 		    	Alert alert = new Alert(AlertType.INFORMATION);
 		    	alert.setHeaderText("댓글등록");
@@ -164,7 +166,7 @@ public class BoardviewController implements Initializable{
 	    void update(ActionEvent event) {
 	    	//title과 contents가 editable, disable 꺼져있는 상태가 전제임
 	    	Alert alert = new Alert(AlertType.INFORMATION);
-	    	if(upcheck) {
+	    	if(upcheck) { // true일때 여기로
 		    	alert.setHeaderText("내용 수정 후 다시 버튼 클릭 시 수정완료가 됩니다.");
 		    	alert.showAndWait();
 		    	
@@ -172,7 +174,7 @@ public class BoardviewController implements Initializable{
 		    	txtcontents.setEditable(true);
 		    	upcheck =false;
 	    	}
-	    	else {
+	    	else { //false 일때 여기로
 	    		BoardDao.getBoardDao().update(board.getB_no(), txttitle.getText(), txtcontents.getText());
 	    		
 	    		alert.setHeaderText("게시물이 수정되었습니다.");

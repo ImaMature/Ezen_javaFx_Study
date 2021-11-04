@@ -153,10 +153,10 @@ public class MainpageController implements Initializable {
     	loadpage("myinfo");
     }
 
-    @FXML
+    @FXML // mainpage에서 product버튼 누르면 productlist로 이동
     void product(ActionEvent event) {
 
-    	loadpage("product");
+    	loadpage("productlist"); // 내가 만든 fx파일명 loadpage메소드에있는 내용을 오버라이드해서 갖다가 쓰는거임
     }
     
 	
