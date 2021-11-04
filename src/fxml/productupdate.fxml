@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.RadioButton?>
@@ -8,46 +9,62 @@
 <?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:controller="controller.ProdcutregisterController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="760.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane  maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="692.0" style="-fx-background-color: #fafafa; -fx-background-radius: 20;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ProductupdateController">
    <children>
-      <Line endX="100.0" layoutX="181.0" layoutY="114.0" startX="-100.0" />
-      <Label layoutX="80.0" layoutY="55.0" prefHeight="34.0" prefWidth="157.0" text="Product" textFill="#e81789">
+      <Label layoutX="24.0" layoutY="47.0" prefHeight="42.0" prefWidth="265.0" text="Product" textFill="#0080ff">
          <font>
             <Font name="Impact" size="33.0" />
          </font>
       </Label>
-      <Label layoutX="201.0" layoutY="55.0" prefHeight="34.0" prefWidth="157.0" text="register">
+      <Label layoutX="143.0" layoutY="47.0" prefHeight="42.0" prefWidth="130.0" text="Regist" textFill="#979797">
          <font>
             <Font name="Impact" size="33.0" />
          </font>
       </Label>
-      <TextField fx:id="txtpname" layoutX="157.0" layoutY="146.0" prefHeight="36.0" prefWidth="237.0" />
-      <Label layoutX="89.0" layoutY="146.0" prefHeight="36.0" prefWidth="63.0" text="제품명" />
-      <Label layoutX="89.0" layoutY="182.0" prefHeight="36.0" prefWidth="63.0" text="제품설명" />
-      <TextArea fx:id="txtpcontents" layoutX="157.0" layoutY="191.0" prefHeight="133.0" prefWidth="237.0" />
-      <Label layoutX="89.0" layoutY="324.0" prefHeight="36.0" prefWidth="63.0" text="카테고리" />
-      <RadioButton fx:id="opt_1" layoutX="157.0" layoutY="334.0" mnemonicParsing="false" text="의류">
+      <Label layoutX="31.0" layoutY="134.0" text="제품명" />
+      <TextField fx:id="txtpname" layoutX="101.0" layoutY="130.0" prefHeight="22.0" prefWidth="259.0" />
+      <Label layoutX="31.0" layoutY="198.0" text="제품설명" />
+      <TextArea fx:id="txtpcontents" layoutX="101.0" layoutY="177.0" prefHeight="232.0" prefWidth="259.0" />
+      <Label layoutX="31.0" layoutY="423.0" text="카테고리" />
+      <RadioButton fx:id="opt_1" layoutX="100.0" layoutY="422.0" mnemonicParsing="false" text="의류">
          <toggleGroup>
             <ToggleGroup fx:id="category" />
          </toggleGroup>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </RadioButton>
-      <RadioButton fx:id="opt_2" layoutX="217.0" layoutY="334.0" mnemonicParsing="false" text="신발" toggleGroup="$category" />
-      <RadioButton fx:id="opt_3" layoutX="278.0" layoutY="334.0" mnemonicParsing="false" text="가방" toggleGroup="$category" />
-      <RadioButton fx:id="opt_4" layoutX="335.0" layoutY="334.0" mnemonicParsing="false" prefHeight="16.0" prefWidth="63.0" text="ACC" toggleGroup="$category" />
-      <TextField fx:id="txtprice" layoutX="155.0" layoutY="360.0" prefHeight="36.0" prefWidth="237.0" />
-      <Label layoutX="89.0" layoutY="360.0" prefHeight="36.0" prefWidth="63.0" text="가격" />
-      <Label layoutX="80.0" layoutY="422.0" prefHeight="36.0" prefWidth="63.0" text="이미지등록" />
-      <Label fx:id="lblimgpath" layoutX="155.0" layoutY="462.0" prefHeight="25.0" prefWidth="237.0" text="이미지경로" />
-      <Button fx:id="btnimgadd" layoutX="154.0" layoutY="425.0" mnemonicParsing="false" onAction="#imgadd" prefHeight="25.0" prefWidth="237.0" text="이미지 등록" />
-      <Button fx:id="btnregister" layoutX="154.0" layoutY="504.0" mnemonicParsing="false" onAction="#register" prefHeight="36.0" prefWidth="530.0" text="등록" />
-      <Button fx:id="btncancel" layoutX="155.0" layoutY="550.0" mnemonicParsing="false" onAction="#cancel" prefHeight="36.0" prefWidth="530.0" text="취소" />
-      <AnchorPane layoutX="448.0" layoutY="146.0" prefHeight="261.0" prefWidth="266.0" style="-fx-border-color: #000000; -fx-border-radius: 10;">
-         <children>
-            <ImageView fx:id="pimg" fitHeight="258.0" fitWidth="266.0" pickOnBounds="true" preserveRatio="true" />
-         </children>
-      </AnchorPane>
+      <RadioButton fx:id="opt_2" layoutX="173.0" layoutY="422.0" mnemonicParsing="false" text="가방" toggleGroup="$category">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></RadioButton>
+      <RadioButton fx:id="opt_3" layoutX="244.0" layoutY="422.0" mnemonicParsing="false" text="신발" toggleGroup="$category">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></RadioButton>
+      <RadioButton fx:id="opt_4" layoutX="312.0" layoutY="422.0" mnemonicParsing="false" text="ACC" toggleGroup="$category">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></RadioButton>
+      <Label layoutX="31.0" layoutY="464.0" text="가격" />
+      <TextField fx:id="txtpprice" layoutX="101.0" layoutY="460.0" prefHeight="22.0" prefWidth="259.0" />
+      <Label layoutX="30.0" layoutY="503.0" text="이미지등록" />
+      <Label fx:id="lblimgpath" layoutX="101.0" layoutY="503.0" text="이미지경로" />
+      <Button fx:id="btnimgadd" layoutX="281.0" layoutY="499.0" mnemonicParsing="false" onAction="#imgadd" style="-fx-background-color: #BDBDBD;" text="이미지 등록">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <ImageView fx:id="pimg" fitHeight="302.0" fitWidth="251.0" layoutX="398.0" layoutY="154.0" pickOnBounds="true" preserveRatio="true" />
+      <Button fx:id="btncancel" layoutX="398.0" layoutY="499.0" mnemonicParsing="false" onAction="#cancel" prefHeight="29.0" prefWidth="66.0" style="-fx-background-color: #F94545;" text="취소" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Button fx:id="btnupdate" layoutX="583.0" layoutY="499.0" mnemonicParsing="false" onAction="#update" prefHeight="29.0" prefWidth="66.0" style="-fx-background-color: #0080ff;" text="수정" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Label layoutX="398.0" layoutY="128.0" text="출력화면" />
    </children>
 </AnchorPane>

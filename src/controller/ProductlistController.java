@@ -25,6 +25,7 @@ import javafx.scene.input.MouseButton;
 
 public class ProductlistController implements Initializable{ //화면 로드[열렸을 때] 되었을때 초기값 인터페이스
 
+	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		
@@ -80,8 +81,8 @@ public class ProductlistController implements Initializable{ //화면 로드[열렸을 
 		});
 	}
 
-	//외부에서 선언 (다른데서 쓸 필요없어서 static 안쓰고 private함)
-	private Product product;
+	public static Product product;
+	
 	
     @FXML
     private Button btndelete;
@@ -131,6 +132,6 @@ public class ProductlistController implements Initializable{ //화면 로드[열렸을 
 
     @FXML
     void update(ActionEvent event) {
-
+    	MainpageController.getinstance().loadpage("productupdate");
     }
 }

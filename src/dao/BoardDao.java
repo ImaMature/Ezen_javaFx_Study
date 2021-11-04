@@ -30,8 +30,8 @@ public class BoardDao {
 			connection = DriverManager.getConnection(
 					"jdbc:mysql://localhost:3307/javafx?serverTimezone=UTC", "root", "1234");
 			System.out.println("DB연동성공");
-		} catch (Exception e) {}
-		System.out.println("DB연동실패");
+		} catch (Exception e) {System.out.println("DB연동실패");}
+		
 	}
 	
 	//객체 반환 메소드
@@ -104,7 +104,7 @@ public class BoardDao {
 				preparedStatement.setInt(3, b_no);
 				preparedStatement.executeUpdate();
 				return true;
-			} catch (Exception e) {}
+			} catch (Exception e) {System.out.println(e.getMessage());}
 				return false;
 		}
 		

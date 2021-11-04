@@ -24,6 +24,8 @@ import javafx.stage.Stage;
 
 public class ProductregisterController {
 
+		
+	
 		@FXML
 	    private Button btncancel;
 
@@ -68,9 +70,7 @@ public class ProductregisterController {
 	    	MainpageController.getinstance().loadpage("productlist");
 	    }
 
-
-	    @FXML 
-	    //제품등록 메소드
+	    @FXML  //제품등록 메소드
 	    void register(ActionEvent event) {
 	    	//유효성검사 (제품명 길이나 숫자가 -거나 이런거 생략함)
 	    	String pname = txtpname.getText(); //제품 이름 갖고옴
