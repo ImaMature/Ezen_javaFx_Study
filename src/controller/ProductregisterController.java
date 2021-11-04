@@ -100,6 +100,7 @@ public class ProductregisterController {
 	    void imgadd(ActionEvent event) {
 	    	
 	    	//1. 파일 선택 클래스
+		    	//FileChooser => 파일을 선택할 수 있는 스테이지를 만드는 클래스
 	    	FileChooser fileChooser = new FileChooser(); //파일 선택시 경로 저장
 	    	//2. 파일 스테이지 설정 getExtensionFilters => 선택한 파일의 필터 지정( png, jpg, gif 만 선택할 수 있도록 )
 	    	fileChooser.getExtensionFilters().add(new ExtensionFilter("그림파일 : Image File", "*png", "*jpg", "*gif")); //
