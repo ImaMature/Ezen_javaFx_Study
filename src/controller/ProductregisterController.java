@@ -64,6 +64,9 @@ public class ProductregisterController {
 
 	    @FXML
 	    private TextField txtpprice;
+	    
+
+	    
 
 	    @FXML
 	    void cancel(ActionEvent event) {
@@ -75,7 +78,7 @@ public class ProductregisterController {
 	    	//유효성검사 (제품명 길이나 숫자가 -거나 이런거 생략함)
 	    	String pname = txtpname.getText(); //제품 이름 갖고옴
 	    	String pcontents = txtpcontents.getText(); //제품 설명 갖고옴
-	    	int pprice = Integer.parseInt(txtpprice.getText()); // 정수형으로 형변환함
+	    	int p_price = Integer.parseInt(txtpprice.getText()); // 정수형으로 형변환함
 	    	String pcategory = ""; // 먼저 공백을 넣어둘거임
 	    	
 	    		if(opt_1.isSelected()) //1번째 라디오버튼을 클릭했을때(isSelected), 
@@ -97,7 +100,7 @@ public class ProductregisterController {
 	    		
 
 	    	//객체화 [상태 초기값을 1로 정함 ]
-	    	Product product = new Product(pname, pimage, pcontents, pcategory, pprice, 1, m_no); //등록시 생성자 받아옴
+	    	Product product = new Product(pname, pimage, pcontents, pcategory, p_price, 1, m_no); //등록시 생성자 받아옴
 	    	
 	    	//DB처리
 	    	boolean result = ProductDao.getProductDao().register(product);

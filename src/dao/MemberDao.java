@@ -246,7 +246,7 @@ public class MemberDao {
 		}
 	
 	
-		//10. 회원 id의 회원번호 찾기 메소드
+		//10. 회원 id의 회원번호 찾기 메소드 id를 받아서 
 		public int mnocheck(String id) {
 			String sql = "select m_no from member where m_id =?";
 			try {

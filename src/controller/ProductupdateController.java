@@ -24,15 +24,15 @@ import javafx.stage.FileChooser.ExtensionFilter;
 import javafx.stage.Stage;
 
 public class ProductupdateController implements Initializable{
-	Product product = ProductlistController.product;
+	Product product = ProductlistController.product; // 1.테이블뷰에서 클릭된 객체
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		txtpname.setText(product.getP_name());		
-		txtpcontents.setText(product.getP_contents());
-		txtpprice.setText(product.getP_price() + "");
-			Image image = new Image(product.getP_img());
-		pimg.setImage(image);
+		txtpname.setText(product.getP_name());		//클릭된 제품명
+		txtpcontents.setText(product.getP_contents()); //클릭된 제품내용
+		txtpprice.setText(product.getP_price() + ""); //클릭된 제품가격 + 스트링화
+			Image image = new Image(product.getP_img()); //클릭된이미지를 이미지로 image변수저장
+		pimg.setImage(image); //pimg라는 이미 씬빌더에서 만들어놓은 이미지 변수에 저장
 		lblimgpath.setText(product.getP_img());
 		pimage = product.getP_img(); //ProductregisterController에 경로 저장된 변수
 		
@@ -85,18 +85,19 @@ public class ProductupdateController implements Initializable{
     void cancel(ActionEvent event) {
     	MainpageController.getinstance().loadpage("productlist");
     }
-    private Stage stage;	// 파일 선택 스테이지
+    private Stage stage;	// 파일 선택 스테이지(이걸 전제로 Filechooser가 사용가능)
     private String pimage;  // 파일 선택 경로
     
     @FXML
     void imgadd(ActionEvent event) {
-    	FileChooser fileChooser = new FileChooser();
+    	FileChooser fileChooser = new FileChooser(); //stage가 무조건 있어야함 윈도우 창 하나가 stage
     	fileChooser.getExtensionFilters().add(
     			new ExtensionFilter("그림파일만 가능", "*jpg", "*png", "*gif"));
-    	File file = fileChooser.showOpenDialog(stage);
+    	File file = fileChooser.showOpenDialog(stage); // 3. 파일 선택을 해당 스테이지 열기
+    		//4. 파일 선택된 경로 file에 저장
     	lblimgpath.setText("파일경로 : " + file.getPath());
-    	pimage = file.toURI().toString();
-    	Image image = new Image(pimage);
+    	pimage = file.toURI().toString(); //realpath(실제경로)를 pimage에 저장해서 객체화
+    	Image image = new Image(pimage); //이미지 클래스에 저장된 pimage값 저장
     	pimg.setImage(image);
     }
 
@@ -104,7 +105,7 @@ public class ProductupdateController implements Initializable{
     void update(ActionEvent event) {
     	String p_name = txtpname.getText();
     	String p_contents = txtpcontents.getText();
-    	int pprice = Integer.parseInt(txtpprice.getText());
+    	int p_price = Integer.parseInt(txtpprice.getText());
     	
     	String category = "";
     	if(opt_1.isSelected()) {category="의류";}
@@ -112,7 +113,7 @@ public class ProductupdateController implements Initializable{
     	if(opt_3.isSelected()) {category="가방";}
     	if(opt_4.isSelected()) {category="ACC";}
     	
-    	Product product2 = new Product(product.getP_no(), p_name, pimage, p_contents, category, pprice, 0, "0", 0);
+    	Product product2 = new Product(product.getP_no(), p_name, pimage, p_contents, category, p_price, 0, "0", 0);
     	boolean result = ProductDao.getProductDao().update(product2);
     	if(result) {
     		Alert alert = new Alert(AlertType.INFORMATION);

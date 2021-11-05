@@ -11,6 +11,8 @@ public class Product {
 	private int p_activation; 
 	private String p_date;
 	private int m_no;
+	
+	private String activation;  //activation을 1에서 문자열로 출력하기 위해 생성한 필드
 	    
 	
 	//2. 생성자 - 역할 : DB에서의 내용을 가져오고 DB에 입력값을 넣기 위해서
@@ -28,6 +30,10 @@ public class Product {
 		this.p_activation = p_activation;
 		this.p_date = p_date;
 		this.m_no = m_no;
+		
+		if(p_activation == 1) {activation="판매중";}  // 생성자에 1이면 판매중이라는 문자열로 바뀜
+		else if(p_activation == 2) {activation = "거래중";}
+		else if (p_activation == 3) {activation = "거래완료";}
 	}
 
 	//등록시 생성자 [ 제품번호, 등록날짜 제외한 필드 ] 
@@ -45,6 +51,14 @@ public class Product {
 
 	
 	
+	public String getActivation() {
+		return activation;
+	}
+
+	public void setActivation(String activation) {
+		this.activation = activation;
+	}
+
 	//getter setter
 	public int getP_no() {
 		return p_no;

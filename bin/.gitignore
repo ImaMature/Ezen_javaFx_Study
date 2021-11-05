@@ -1,5 +1,5 @@
-/controller/
 /dao/
-/domain/
+/controller/
+/메소드호출하는법.txt
 /fxml/
-/app/
+/domain/

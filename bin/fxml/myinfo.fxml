@@ -50,7 +50,7 @@
             <Font name="Impact" size="23.0" />
          </font>
       </Button>
-      <TableView layoutX="251.0" layoutY="74.0" prefHeight="224.0" prefWidth="398.0" style="-fx-border-color: #ffffff;">
+      <TableView fx:id="myboardlist" layoutX="251.0" layoutY="74.0" prefHeight="224.0" prefWidth="398.0" style="-fx-border-color: #ffffff;">
         <columns>
           <TableColumn prefWidth="49.0" style="-fx-background-color: #ffffff;" text="num" />
           <TableColumn prefWidth="149.0" style="-fx-background-color: #ffffff;" text="Title" />
@@ -58,13 +58,13 @@
             <TableColumn prefWidth="49.0" style="-fx-background-color: #ffffff;" text="View" />
         </columns>
       </TableView>
-      <TableView layoutX="251.0" layoutY="347.0" prefHeight="224.0" prefWidth="398.0" style="-fx-border-color: #ffffff;">
+      <TableView fx:id="myproductlist" layoutX="251.0" layoutY="347.0" prefHeight="224.0" prefWidth="398.0" style="-fx-border-color: #ffffff;">
          <columns>
-            <TableColumn prefWidth="40.0" style="-fx-background-color: #ffffff;" text="num" />
-            <TableColumn prefWidth="119.0" style="-fx-background-color: #ffffff;" text="Name" />
-            <TableColumn prefWidth="66.0" style="-fx-background-color: #ffffff;" text="Brand" />
-            <TableColumn prefWidth="76.0" style="-fx-background-color: #ffffff;" text="Category" />
-            <TableColumn prefWidth="95.0" style="-fx-background-color: #ffffff;" text="Price" />
+            <TableColumn prefWidth="90.0" style="-fx-background-color: #ffffff;" text="Name" />
+            <TableColumn prefWidth="89.0" style="-fx-background-color: #ffffff;" text="Category" />
+            <TableColumn prefWidth="74.0" style="-fx-background-color: #ffffff;" text="Price" />
+            <TableColumn prefWidth="67.0" style="-fx-background-color: #ffffff;" text="Activation" />
+            <TableColumn prefWidth="76.0" style="-fx-background-color: #ffffff;" text="Date" />
          </columns>
       </TableView>
       <Label layoutX="265.0" layoutY="56.0" text="- My community">

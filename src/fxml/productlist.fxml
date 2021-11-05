@@ -32,10 +32,10 @@
          </font>
       </Label>
       <Line endX="100.0" layoutX="134.0" layoutY="82.0" startX="-112.0" stroke="#9e9c9c" />
-      <Label fx:id="lblpname" layoutX="21.0" layoutY="382.0" text="제품명" />
-      <Label fx:id="lblpcontents" layoutX="21.0" layoutY="422.0" text="제품설명" />
-      <Label fx:id="lblpprice" layoutX="21.0" layoutY="478.0" text="제품가격" />
-      <Label fx:id="lblmid" layoutX="21.0" layoutY="516.0" text="등록회원" />
+      <Label layoutX="21.0" layoutY="405.0" text="제품명" />
+      <Label layoutX="21.0" layoutY="445.0" text="제품설명" />
+      <Label layoutX="21.0" layoutY="501.0" text="제품가격" />
+      <Label layoutX="21.0" layoutY="539.0" text="등록회원" />
       <Button fx:id="btnupdate" layoutX="258.0" layoutY="32.0" mnemonicParsing="false" onAction="#update" prefHeight="33.0" prefWidth="76.0" style="-fx-background-color: #BDBDBD;" text="수정">
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -48,10 +48,15 @@
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
-      <AnchorPane layoutX="15.0" layoutY="111.0" prefHeight="200.0" prefWidth="200.0">
+      <AnchorPane layoutX="21.0" layoutY="129.0" prefHeight="200.0" prefWidth="200.0">
          <children>
             <ImageView fx:id="pimg" fitHeight="246.0" fitWidth="227.0" pickOnBounds="true" preserveRatio="true" />
          </children>
       </AnchorPane>
+      <Button fx:id="btnactivation" layoutX="19.0" layoutY="89.0" mnemonicParsing="false" onAction="#activation" text="판매중" />
+      <Label fx:id="lblpname" layoutX="98.0" layoutY="405.0" text="제품명" />
+      <Label fx:id="lblpcontents" layoutX="98.0" layoutY="445.0" text="제품설명" />
+      <Label fx:id="lblpprice" layoutX="98.0" layoutY="501.0" text="제품가격" />
+      <Label fx:id="lblmid" layoutX="98.0" layoutY="539.0" text="등록회원" />
    </children>
 </AnchorPane>
