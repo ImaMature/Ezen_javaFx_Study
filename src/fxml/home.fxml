@@ -79,15 +79,15 @@
                             <CategoryAxis side="BOTTOM" />
                           </xAxis>
                           <yAxis>
-                            <NumberAxis side="LEFT" />
+                            <NumberAxis side="LEFT" upperBound="10" />
                           </yAxis>
                         </LineChart>
-                        <Label layoutX="51.0" layoutY="130.0" text="증가" textFill="RED">
+                        <Label fx:id="lblincrease" layoutX="51.0" layoutY="130.0" text="증가" textFill="RED">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Label>
-                        <Label layoutX="121.0" layoutY="130.0" text=" 감소" textFill="#0033ff">
+                        <Label fx:id="lbldecrease" layoutX="121.0" layoutY="130.0" text=" 감소" textFill="#0033ff">
                            <font>
                               <Font size="18.0" />
                            </font>
@@ -101,7 +101,7 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #ffffff;">
                      <children>
-                        <BarChart layoutX="14.0" layoutY="17.0" prefHeight="226.0" prefWidth="297.0">
+                        <BarChart fx:id="BC" layoutX="14.0" layoutY="17.0" prefHeight="226.0" prefWidth="297.0">
                           <xAxis>
                             <CategoryAxis side="BOTTOM" />
                           </xAxis>
@@ -110,7 +110,7 @@
                           </yAxis>
                         </BarChart>
                         <Label layoutX="344.0" layoutY="83.0" text="가장 많은 카테고리" />
-                        <Label layoutX="344.0" layoutY="111.0" text="비트코인" textFill="RED">
+                        <Label fx:id="lblcategory" layoutX="344.0" layoutY="111.0" text="비트코인" textFill="RED">
                            <font>
                               <Font size="16.0" />
                            </font>
@@ -124,7 +124,7 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #ffffff;">
                      <children>
-                        <PieChart layoutX="221.0" layoutY="17.0" prefHeight="226.0" prefWidth="297.0" />
+                        <PieChart fx:id="PC" layoutX="221.0" layoutY="5.0" prefHeight="245.0" prefWidth="297.0" />
                         <Label layoutX="27.0" layoutY="48.0" text="제품 상태 현황 (수)">
                            <font>
                               <Font size="15.0" />

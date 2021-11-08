@@ -4,9 +4,11 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-
+import java.util.ArrayList;
+import java.util.HashMap;
 
 import domain.Product;
+import domain.ProductDate;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -158,12 +160,73 @@ public class ProductDao {
 		try {
 			preparedStatement = connection.prepareStatement(sql);
 			resultSet = preparedStatement.executeQuery();
-			if(resultSet.next()) {			//select * from member하면 count한 값만 나옴
-				return resultSet.getInt(1);	//count의 필드 1개만 나오기 때문에 1
+			if(resultSet.next()) {			//select * from product하면 count한 값만 나옴
+				return resultSet.getInt(1);	//count의 필드(열) 1개만 나오기 때문에 1
 			}
 		} catch (Exception e) {
 			
 		}
 		return 0;
 	}
+	//select * from product group by p_date
+		//날짜별로 모두 그룹하기
+	//select substring_index(product.p_date,' ',1) from product 
+		//product 테이블에서 p_date필드 불러오기(p_date(날짜)' '을 기준으로 1번째만 나오도록)
+	//select substring_index(product.p_date,' ',1),count(*) from product
+		//product 테이블에서 p_date필드 불러오기 (p_date(날짜)' '을 기준으로 1번째만 나오도록), 그리고 2번째 p_date가 몇개인지 다 불러오기 
+	//select substring_index(product.p_date,' ',1),count(*) from product group by substring_index(product.p_date, ' ', 1)
+		//날짜, 제품 수 가져오기 (둘 다 product 테이블에서) (날짜의 ''을 기점으로 나누어진) p_date를 기준으로 그룹된걸 가져옴(날짜의 ''을 기점으로 나누기 ))
+		/*MySQL 실행 결과
+		 * substring_index(product.p_date,' ',1)  | Count(*) (날짜별로 등록한 제품의 수를 센것) //count 는 productdate 도메인에 필드로 생성함
+		 							2021-11-04   |		2
+		 							2021-11-05   |		2
+		 							2021-11-08   |		2
+
+		*/
+	//8. 날짜별 제품 수 반환
+	public ArrayList<ProductDate> productdatelist(){
+		ArrayList <ProductDate> productdates = new ArrayList<>();
+		String sql = "select substring_index(product.p_date,' ',1),count(*) from product group by substring_index(product.p_date, ' ', 1)";
+		//select SUBSTRING_INDEX (product.p_date, ' ', 1) from product
+		//* substring_index(테이블명.필드명, '자르는 기준', 가져올번호)
+									//작은따옴표로 자르는 기준 설정하기
+		//2021-11-08 11:34:30 > 1 : 2021-11-08, 2: 11:34:30
+		
+		try {
+			preparedStatement = connection.prepareStatement(sql);
+			resultSet = preparedStatement.executeQuery();
+			while(resultSet.next()) {
+				ProductDate date = new ProductDate(
+						resultSet.getString(1), //1번째 열(필드,컬럼) 모르겠으면 String sql의 뒤의 "~" 내용들을 sql에 찍어서 판단하기
+						resultSet.getInt(2));	//2번재 열(필드, 컬럼)
+				productdates.add(date);
+			}
+		} catch (Exception e) {}
+		return productdates;
+		
+	}
+	
+	
+	
+	//9. 카테고리별 제품 수 반환
+	public HashMap<String, Integer> productcategorylist(){
+		HashMap<String, Integer> hashMap = new HashMap<>(); // HomeController에 있는 hashMap과는 다른 새로운 객체
+		String sql = "select p_category, count(*) from product group by p_category";
+			//그룹된 카테고리를 기준으로 프로덕트 테이블에서 카테고리와, 제품수를 검색하기
+								//category는 domain/product에 String p_catogory 필드로 선언
+								//count는 productDate에 int count 필드로 선언
+		try {
+			preparedStatement= connection.prepareStatement(sql);
+			resultSet = preparedStatement.executeQuery();
+			while(resultSet.next()) {
+				//검색된 레코드를 map 컬렉션에 넣기 [x축(key : 카테고리), y축(value : 개수)]
+				hashMap.put(resultSet.getString(1), resultSet.getInt(2)); //Map의 단점 순서가 정해져있지 않음
+			}
+			return hashMap;
+			
+		} catch (Exception e) {	}
+		return hashMap;
+	}
+	
+	//10. 
 }
