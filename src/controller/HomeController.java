@@ -138,6 +138,8 @@ public class HomeController implements Initializable{
 //		series.getData().add(new XYChart.Data<>("2",40));
 //		series.getData().add(new XYChart.Data<>("3",50));
 		
+//==================================================================================================================================		
+		
 		//2***. 선차트 다른방법 (이걸 자주쓰라고 하심)
 			//2-1) 계열 생성
 		XYChart.Series series = new XYChart.Series<>(); 
