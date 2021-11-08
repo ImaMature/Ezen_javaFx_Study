@@ -140,7 +140,7 @@ public class ProductDao {
 	}
 	
 	//6. 제품상태 활성화 변경
-	public boolean activationupdate(int p_activation, int p_no) {
+	public boolean activationupdate(int p_activation, int p_no) { //제품번호가 동일한 경우 업데이트를 하겠다
 		String sql = "update product set p_activation=? where p_no=?";
 		try {
 			preparedStatement = connection.prepareStatement(sql);
@@ -150,5 +150,20 @@ public class ProductDao {
 			return true;
 		} catch (Exception e) {	}
 		return false; 
+	}
+	
+	//7. 전체 제품 수 반환
+	public int productcount() { //메소드가 int형 반환값도 int형
+		String sql = "select count(*) from product";
+		try {
+			preparedStatement = connection.prepareStatement(sql);
+			resultSet = preparedStatement.executeQuery();
+			if(resultSet.next()) {			//select * from member하면 count한 값만 나옴
+				return resultSet.getInt(1);	//count의 필드 1개만 나오기 때문에 1
+			}
+		} catch (Exception e) {
+			
+		}
+		return 0;
 	}
 }

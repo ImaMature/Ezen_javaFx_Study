@@ -39,7 +39,7 @@ public class ProductlistController implements Initializable{ //화면 로드[열렸을 
     	
     	if(ch == 1) {
     		ProductDao.getProductDao().activationupdate(1, product.getP_no());
-    		producttableload();
+    		producttableload(); //테이블 새로고침 (initialize 하던거를 메소드화)
     		btnactivation.setText("판매중");
     	}
     	if(ch == 2) {
@@ -50,7 +50,7 @@ public class ProductlistController implements Initializable{ //화면 로드[열렸을 
     	if(ch == 3) {
     		ProductDao.getProductDao().activationupdate(3, product.getP_no());
 	    	producttableload();
-			btnactivation.setText("품절");
+			btnactivation.setText("거래완료");
 		}
     	
     	// product 클래스의 생성자의 activation의 if절과 같이 보기

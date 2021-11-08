@@ -63,10 +63,10 @@ public class BoardDao {
 			try {
 				preparedStatement = connection.prepareStatement(sql);
 				resultSet = preparedStatement.executeQuery();
-				//2. 검색된 [쿼리] 레코드의 하나씩 객체화
+				//2. 검색된 [쿼리] 레코드(회원 db의 가로(행))의 하나씩 객체화, 필드는(회원db의 세로(열))
 				while(resultSet.next()) {
 					//쿼리결과 내 레코드가 없을 때 까지 반복
-					Board board = new Board(resultSet.getInt(1), 
+					Board board = new Board(resultSet.getInt(1), //1~6까지는 회원db의 필드
 											resultSet.getString(2), 
 											resultSet.getString(3), 
 											resultSet.getString(4), 
@@ -165,13 +165,13 @@ public class BoardDao {
 		//3-9) 로그인된 회원의 게시물 출력
 		
 				public ObservableList<Board> myboardlist(String id) {
-					//0. 리스트 선언
+					//0. 리스트 선언 (테이블뷰, 차트와 관련있음)
 					ObservableList<Board> boards = FXCollections.observableArrayList();
 					
 					//1. 조건 없이 모두 가져오기 
 													//b_write board테이블의 회원 이름
 					String sql = "select*from board where b_write =? order by b_no asc"; // 오름차순 order by 컬럼명 asc // 내림차순은 desc
-					try {								//전달받은 id값과 b_write값이 같다면
+					try {								//전달받은 id값과 b_write(작성자)값이 같다면
 						preparedStatement = connection.prepareStatement(sql);
 						preparedStatement.setString(1, id);
 						resultSet = preparedStatement.executeQuery();
@@ -189,7 +189,20 @@ public class BoardDao {
 						return boards;
 					} catch (Exception e) {}
 					return boards;
-					
-					
+				}
+				
+			//3-10) 게시물수 빼와서 게시물 수반환
+				public int boardcount() {
+					String sql = "select count(*) from board";
+					try {
+						preparedStatement = connection.prepareStatement(sql);
+						resultSet = preparedStatement.executeQuery();
+						if(resultSet.next()) {
+							return resultSet.getInt(1);
+						}
+					} catch (Exception e) {
+						// TODO: handle exception
+					}
+					return 0;
 				}
 }

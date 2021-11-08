@@ -280,7 +280,20 @@ public class MemberDao {
 	
 	
 	
-	
+		//12. DB에서 회원수 빼와서 회원수 반환하는 메소드
+		public int membercount() {
+			String sql = "select count(*) from member";
+			try {
+				preparedStatement = connection.prepareStatement(sql);
+				resultSet = preparedStatement.executeQuery();
+				if(resultSet.next()) {			//select * from member하면 count한 값만 나옴
+					return resultSet.getInt(1);	//count의 필드 1개만 나오기 때문에 1
+				}
+			} catch (Exception e) {
+				// TODO: handle exception
+			}
+			return 0;
+		}
 	
 	
 	

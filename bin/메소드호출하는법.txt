@@ -1,0 +1,65 @@
+메소드 호출하는 법 (중요!!!!!!!!!)
+
+1.Controller 인스턴스 
+[다른 컨트롤러에서 동일한 Boardpane 사용] 계속 동일한걸 사용하기 때문에  new로 새롭게 객체생성하면 안됨
+	
+    public static MainpageController instance;	//변수 선언
+	
+    //생성자
+    public MainpageController() {
+    	instance = this; // [ this : 현재 클래스의 메모리(모든 필드, 메소드)를 instance변수에 할당 ]  동일한 Boardpane사용하기 위해서 this사용
+		//this는 메소드영역
+    }
+    
+    //객체 변환
+    public static MainpageController getinstance() {
+    	return instance;	instance 변수 호출 메소드
+    }
+   MainpageContoller.getinstance().loadpage("productegister") // 메소드 실행하기
+
+2. Dao 인스턴스[해당 인스턴스 생성시 DB와 연결된 인스턴스 사용할 수 있음]
+
+public static ProductDao productDao = new ProductDao(); //생성자 // new라서 스택영역으로 이동
+
+	public ProductDao(){ //메소드 //커넥션을 계속해야되기때문에 메모리할당이 소모가 많이 돼서 클래스에 커넥션 생성자를 만들어놓은것
+			try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			connection = DriverManager.getConnection("jdbc:mysql://localhost:3307/javafx?serverTimezone=UTC", "root", "1234");
+		} catch (Exception e) {}
+	}//커넥션한걸 연결해주는거
+
+public static ProductDao getProductDao() {return productDao;} //커넥션된거 호출
+
+boolean result = ProductDao.getinstance(
+
+ProductDao dao =new ProductDao(); //새로운 생성자를 통해 새로운 메모리영역에 저장
+dao.update(product2); 저장된 걸 빼오기
+
+3. new 객체를 통한 메소드 접근
+	클래스명 변수명 = new 클래스명()
+	변수명.메소드명()
+
+4. static 메소드
+	클래스명.메소드명()
+
+코딩을 짤때 MVC를 생각하고 해야됨 입력받았을때, 객체화하기
+
+V : 입력받은것
+String p_name = txtpname.getText();
+String p_contents = txtpcontents.getText();
+int pprice = Integer.parseInt(txtpprice.getText());
+String category = "";
+
+    	if(opt_1.isSelected()) {category="의류";}
+    	if(opt_2.isSelected()) {category="신발";}
+    	if(opt_3.isSelected()) {category="가방";}
+    	if(opt_4.isSelected()) {category="ACC";}
+    	
+C : 컨트롤에서 입력받은것 객체화 (객체화(캡슐화) 안시키면 6개 따로 넣어놔야됨)
+
+Product product2 = new Product(product.getP_no(), p_name, pimage, p_contents, category, pprice, 0, "0", 0);
+
+M : 클래스(객체)
+
+DB처리
+boolean result = ProductDao.getProductDao().update(product2)
