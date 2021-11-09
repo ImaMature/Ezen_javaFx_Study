@@ -17,7 +17,7 @@
             <Font size="27.0" />
          </font>
       </Label>
-      <TextField fx:id="txtcontents" layoutX="52.0" layoutY="490.0" prefHeight="22.0" prefWidth="249.0" />
+      <TextField fx:id="txtcontents" onAction="#send" layoutX="52.0" layoutY="490.0" prefHeight="22.0" prefWidth="249.0" />
       <TextArea fx:id="txtclient" layoutX="52.0" layoutY="102.0" prefHeight="372.0" prefWidth="319.0">
          <font>
             <Font name="HYHeadLine-Medium" size="13.0" />
@@ -29,7 +29,7 @@
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
-      <Button fx:id="btninput" layoutX="331.0" layoutY="490.0" mnemonicParsing="false" text="등록" />
+      <Button fx:id="btninput" onAction="#msgsend" layoutX="331.0" layoutY="490.0" mnemonicParsing="false" text="등록" />
       <TableView layoutX="401.0" layoutY="148.0" prefHeight="326.0" prefWidth="237.0">
         <columns>
           <TableColumn prefWidth="236.0" text="접속회원" />

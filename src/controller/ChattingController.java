@@ -7,6 +7,8 @@ import java.net.Socket;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import dao.MemberDao;
+import domain.Member;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -75,11 +77,36 @@ public class ChattingController implements Initializable{
 				inputStream.read(bytes); //2. 입력스트림 내 바이트를 읽어오기
 				String msg = new String(bytes); // 바이트배열 -> 문자열 형변환
 				Platform.runLater(() -> {txtclient.appendText(msg);}); //받아온 메시지를 txtarea에 띄우기
-			} catch (Exception e) {
+			} 
+			catch (Exception e) {
 				System.out.println("receive()"+e.getMessage());
 			}
 		}
 	}
+	
+	private String loginid = MainpageController.getinstance().getloginid();
+	
+	//6. 입력버튼을 눌렀을 때
+	@FXML
+	void msgsend (ActionEvent event) {
+		//메시지 보내기
+		send(loginid + " : " + txtcontents.getText() + "\n"); //꼭 가져올때 +"\n"해야됨.
+		//보내기 후
+		txtcontents.setText("");
+		txtcontents.requestFocus();
+		
+	}
+	
+	//7. 엔터를 눌렀을 때
+		@FXML
+		void send (ActionEvent event) {
+			//메시지 보내기
+			send(loginid + " : " + txtcontents.getText() + "\n"); //꼭 가져올때 +"\n"해야됨.
+			//보내기 후
+			txtcontents.setText("");
+			txtcontents.requestFocus();
+			
+		}
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
@@ -105,6 +132,7 @@ public class ChattingController implements Initializable{
 	void connect (ActionEvent event) {
 		if(btnconnect.getText().equals("접속하기")) {
 			//1. 클라이언트 실행
+			clientstart();
 			//2. 접속 메시지 전달
 			Platform.runLater(() -> {
 				txtclient.appendText("---[채팅방 접속]---\n");});
@@ -115,6 +143,7 @@ public class ChattingController implements Initializable{
 			btninput.setDisable(false); //사용가능
 		}else {
 			//1. 클라이언트 종료
+			clientstop();
 			//2. 퇴장 메시지 전달
 			Platform.runLater(() -> {txtclient.appendText("---[채팅방 퇴장]---\n");});
 			//3. 컨트롤 내용 변경
