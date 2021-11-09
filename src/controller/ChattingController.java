@@ -34,7 +34,7 @@ public class ChattingController implements Initializable{
 					socket = new Socket("127.168.102.50",1234); //서버 소켓에 바인딩된 ip와 port
 					receive();
 				} catch (Exception e) {
-					
+					Platform.runLater(() -> {txtclient.appendText("클라이언트 시작 실패 \n");});
 				}
 				
 			}
@@ -46,11 +46,11 @@ public class ChattingController implements Initializable{
 		try {
 			socket.close(); //소켓 닫기 
 		} catch (Exception e) {
-			
+			Platform.runLater(() -> {txtclient.appendText("클라이언트 종료 실패 \n");});
 		}
 	}
 	//4. 메시지 보내기 메소드
-	public void send(String msg) {
+	public void send(String msg) { //입력버튼을 누르거나 혹은 텍스트 창에서 엔터눌렀을때
 		Thread thread = new Thread() {
 			@Override
 			public void run() {
@@ -59,10 +59,8 @@ public class ChattingController implements Initializable{
 					outputStream.write(msg.getBytes()); // 인수로 받은 메시지를 바이트형 변환해서 내보내기
 					outputStream.flush(); //메모리 초기화
 				} catch (Exception e) {
-					System.out.println("send()"+e.getMessage());
+					Platform.runLater(() -> {txtclient.appendText("send()메소드(메시지보내기)오류 \n");});
 				}
-				
-				
 			}
 		};
 		thread.start(); //Thread thread = new Thread() {}; 와 한 객체
@@ -77,14 +75,15 @@ public class ChattingController implements Initializable{
 				inputStream.read(bytes); //2. 입력스트림 내 바이트를 읽어오기
 				String msg = new String(bytes); // 바이트배열 -> 문자열 형변환
 				Platform.runLater(() -> {txtclient.appendText(msg);}); //받아온 메시지를 txtarea에 띄우기
+				//appendText 텍스트추가
 			} 
 			catch (Exception e) {
-				System.out.println("receive()"+e.getMessage());
+				Platform.runLater(() -> {txtclient.appendText("메시지 받기 실패 \n");});
 			}
 		}
 	}
 	
-	private String loginid = MainpageController.getinstance().getloginid();
+	private String loginid = MainpageController.getinstance().getloginid(); //로그인된 아이디의 라벨값 가져오는 메소드 실행해서 loginid에 저장
 	
 	//6. 입력버튼을 눌렀을 때
 	@FXML
