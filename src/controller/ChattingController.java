@@ -32,9 +32,10 @@ public class ChattingController implements Initializable{
 				//접속하기
 				try {
 					socket = new Socket("127.168.102.50",1234); //서버 소켓에 바인딩된 ip와 port
+					send(loginid + "님이 채팅방에 입장하셨습니다.");
 					receive();
 				} catch (Exception e) {
-					Platform.runLater(() -> {txtclient.appendText("클라이언트 시작 실패 \n");});
+					
 				}
 				
 			}
@@ -46,7 +47,7 @@ public class ChattingController implements Initializable{
 		try {
 			socket.close(); //소켓 닫기 
 		} catch (Exception e) {
-			Platform.runLater(() -> {txtclient.appendText("클라이언트 종료 실패 \n");});
+			
 		}
 	}
 	//4. 메시지 보내기 메소드
@@ -59,7 +60,7 @@ public class ChattingController implements Initializable{
 					outputStream.write(msg.getBytes()); // 인수로 받은 메시지를 바이트형 변환해서 내보내기
 					outputStream.flush(); //메모리 초기화
 				} catch (Exception e) {
-					Platform.runLater(() -> {txtclient.appendText("send()메소드(메시지보내기)오류 \n");});
+					
 				}
 			}
 		};
@@ -78,7 +79,7 @@ public class ChattingController implements Initializable{
 				//appendText 텍스트추가
 			} 
 			catch (Exception e) {
-				Platform.runLater(() -> {txtclient.appendText("메시지 받기 실패 \n");});
+				
 			}
 		}
 	}
