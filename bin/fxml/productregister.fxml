@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="692.0" style="-fx-background-color: #fafafa; -fx-background-radius: 20;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ProductregisterController">
+   <children>
+      <Label layoutX="24.0" layoutY="47.0" prefHeight="42.0" prefWidth="265.0" text="Product" textFill="#0080ff">
+         <font>
+            <Font name="Impact" size="33.0" />
+         </font>
+      </Label>
+      <Label layoutX="143.0" layoutY="47.0" prefHeight="42.0" prefWidth="130.0" text="Regist" textFill="#979797">
+         <font>
+            <Font name="Impact" size="33.0" />
+         </font>
+      </Label>
+      <Label layoutX="31.0" layoutY="134.0" text="제품명" />
+      <TextField fx:id="txtpname" layoutX="101.0" layoutY="130.0" prefHeight="22.0" prefWidth="259.0" />
+      <Label layoutX="31.0" layoutY="198.0" text="제품설명" />
+      <TextArea fx:id="txtpcontents" layoutX="101.0" layoutY="177.0" prefHeight="232.0" prefWidth="259.0" />
+      <Label layoutX="31.0" layoutY="423.0" text="카테고리" />
+      <RadioButton fx:id="opt_1" layoutX="100.0" layoutY="422.0" mnemonicParsing="false" text="의류">
+         <toggleGroup>
+            <ToggleGroup fx:id="category" />
+         </toggleGroup>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </RadioButton>
+      <RadioButton fx:id="opt_2" layoutX="173.0" layoutY="422.0" mnemonicParsing="false" text="가방" toggleGroup="$category">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></RadioButton>
+      <RadioButton fx:id="opt_3" layoutX="244.0" layoutY="422.0" mnemonicParsing="false" text="신발" toggleGroup="$category">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></RadioButton>
+      <RadioButton fx:id="opt_4" layoutX="312.0" layoutY="422.0" mnemonicParsing="false" text="ACC" toggleGroup="$category">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></RadioButton>
+      <Label layoutX="31.0" layoutY="464.0" text="가격" />
+      <TextField fx:id="txtpprice" layoutX="101.0" layoutY="460.0" prefHeight="22.0" prefWidth="259.0" />
+      <Label layoutX="30.0" layoutY="503.0" text="이미지등록" />
+      <Label fx:id="lblimgpath" layoutX="101.0" layoutY="503.0" text="이미지경로" />
+      <Button fx:id="btnimgadd" layoutX="281.0" layoutY="499.0" mnemonicParsing="false" onAction="#imgadd" style="-fx-background-color: #BDBDBD;" text="이미지 등록">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <ImageView fx:id="pimg" fitHeight="302.0" fitWidth="251.0" layoutX="398.0" layoutY="154.0" pickOnBounds="true" preserveRatio="true" />
+      <Button fx:id="btncancel" layoutX="398.0" layoutY="499.0" mnemonicParsing="false" onAction="#cancel" prefHeight="29.0" prefWidth="66.0" style="-fx-background-color: #F94545;" text="취소" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Button fx:id="btnregister" layoutX="583.0" layoutY="499.0" mnemonicParsing="false" onAction="#register" prefHeight="29.0" prefWidth="66.0" style="-fx-background-color: #0080ff;" text="등록" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Label layoutX="398.0" layoutY="128.0" text="출력화면" />
+   </children>
+</AnchorPane>

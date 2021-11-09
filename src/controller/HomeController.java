@@ -198,6 +198,7 @@ public class HomeController implements Initializable{
 		
 		HashMap<String, Integer> hashMap = ProductDao.getProductDao().productcategorylist();
 		// Map 컬렉션<key , value> 제네릭 2개 필요
+		// key, value 한 세트를 엔트리라고 함
 		
 		String maxcategorykey = " ";
 		int max = 0;

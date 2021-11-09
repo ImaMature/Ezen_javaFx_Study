@@ -156,7 +156,9 @@ public class ProductDao {
 	
 	//7. 전체 제품 수 반환
 	public int productcount() { //메소드가 int형 반환값도 int형
-		String sql = "select count(*) from product";
+		String sql = "select count(*) from product"; 
+		//count함수 해당 필드의 레코드 수를 셈 (공백X) 
+		//count(*) 해당 필드의 모든 레코드 수를 셈 (공백O)
 		try {
 			preparedStatement = connection.prepareStatement(sql);
 			resultSet = preparedStatement.executeQuery();

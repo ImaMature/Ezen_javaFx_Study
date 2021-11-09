@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="692.0" style="-fx-background-color: #fafafa;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.HomeController">
+   <children>
+      <ImageView fitHeight="600.0" fitWidth="692.0" pickOnBounds="true">
+         <image>
+            <Image url="@Bluewhite.jpg" />
+         </image>
+      </ImageView>
+      <Circle fill="DODGERBLUE" layoutX="552.0" layoutY="128.0" radius="64.0" strokeType="INSIDE">
+         <effect>
+            <DropShadow height="13.0" offsetY="2.0" radius="6.0" width="13.0" />
+         </effect>
+      </Circle>
+      <Circle fill="#b9b9b9" layoutX="346.0" layoutY="124.0" radius="64.0" strokeType="INSIDE">
+         <effect>
+            <DropShadow height="13.0" offsetY="2.0" radius="6.0" width="13.0" />
+         </effect>
+      </Circle>
+      <Circle fill="WHITE" layoutX="138.0" layoutY="123.0" radius="64.0" strokeType="INSIDE">
+         <effect>
+            <DropShadow height="13.0" offsetY="2.0" radius="6.0" width="13.0" />
+         </effect>
+      </Circle>
+      <Label fx:id="lbltotalmember" alignment="CENTER" layoutX="118.0" layoutY="139.0" text="9999" textAlignment="CENTER" textFill="#0080ff">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbltotalproduct" alignment="CENTER" layoutX="326.0" layoutY="134.0" text="9999" textFill="#000000">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbltotalboard" alignment="CENTER" layoutX="532.0" layoutY="138.0" text="9999" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="88.0" layoutY="97.0" text="Total Member" textFill="#0080ff">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="511.0" layoutY="96.0" text="Total Board" textFill="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="298.0" layoutY="92.0" text="Total Product">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Accordion layoutX="79.0" layoutY="212.0" prefHeight="326.0" prefWidth="534.0">
+        <panes>
+          <TitledPane animated="false" style="-fx-background-color: #000000;" text="제품 등록 추세">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #ffffff;">
+                     <children>
+                        <LineChart fx:id="LC" layoutX="221.0" layoutY="17.0" prefHeight="226.0" prefWidth="297.0">
+                          <xAxis>
+                            <CategoryAxis side="BOTTOM" />
+                          </xAxis>
+                          <yAxis>
+                            <NumberAxis side="LEFT" upperBound="10" />
+                          </yAxis>
+                        </LineChart>
+                        <Label fx:id="lblincrease" layoutX="51.0" layoutY="130.0" text="증가" textFill="RED">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lbldecrease" layoutX="121.0" layoutY="130.0" text=" 감소" textFill="#0033ff">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="51.0" layoutY="108.0" text="전일 대비" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </TitledPane>
+          <TitledPane animated="false" text="제품 카테고리">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #ffffff;">
+                     <children>
+                        <BarChart fx:id="BC" layoutX="14.0" layoutY="17.0" prefHeight="226.0" prefWidth="297.0">
+                          <xAxis>
+                            <CategoryAxis side="BOTTOM" />
+                          </xAxis>
+                          <yAxis>
+                            <NumberAxis side="LEFT" />
+                          </yAxis>
+                        </BarChart>
+                        <Label layoutX="344.0" layoutY="83.0" text="가장 많은 카테고리" />
+                        <Label fx:id="lblcategory" layoutX="344.0" layoutY="111.0" text="비트코인" textFill="RED">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <Line endX="24.0" layoutX="441.0" layoutY="104.0" startX="-100.0" stroke="#908e8e" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </TitledPane>
+          <TitledPane animated="false" text="제품 상태 현황">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #ffffff;">
+                     <children>
+                        <PieChart fx:id="PC" layoutX="221.0" layoutY="5.0" prefHeight="245.0" prefWidth="297.0" />
+                        <Label layoutX="27.0" layoutY="48.0" text="제품 상태 현황 (수)">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="27.0" layoutY="92.0" text="판매중">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="27.0" layoutY="130.0" text="거래중">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="27.0" layoutY="165.0" text="거래완료">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </TitledPane>
+        </panes>
+      </Accordion>
+   </children>
+</AnchorPane>
