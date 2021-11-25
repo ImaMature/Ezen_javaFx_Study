@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="736.0" prefWidth="1280.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Button fx:id="CoinRegisterbtn" layoutX="390.0" layoutY="368.0" mnemonicParsing="false" onAction="#CoinRegAction" prefHeight="68.0" prefWidth="167.0" style="-fx-background-color: #071466;" text="코인등록" textFill="WHITE">
+         <font>
+            <Font size="21.0" />
+         </font></Button>
+      <Button fx:id="CoinUpdatebtn" layoutX="709.0" layoutY="368.0" mnemonicParsing="false" onAction="#CoinUpdateAction" prefHeight="68.0" prefWidth="167.0" style="-fx-background-color: #E6202A;" text="코인삭제" textFill="WHITE">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

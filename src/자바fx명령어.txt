@@ -1,0 +1,7 @@
+DELETE FROM `javafx`.`board` WHERE (`b_no` = '1'); javafx schema의 board테이블의 b_no가 1번인 행 삭제
+DELETE FROM `javafx`.`board` WHERE (`b_no` = '2');
+DELETE FROM `javafx`.`board` WHERE (`b_no` = '6');
+DELETE FROM `javafx`.`board` WHERE (`b_no` = '7');
+DELETE FROM `javafx`.`board` WHERE (`b_no` = '8');
+DELETE FROM `javafx`.`board` WHERE (`b_no` = '9');
+UPDATE `javafx`.`board` SET `b_no` = '1' WHERE (`b_no` = '10'); javafx schema의 board테이블의 b_no를 10에서 1로 변환

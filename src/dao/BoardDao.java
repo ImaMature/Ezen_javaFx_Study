@@ -29,6 +29,7 @@ public class BoardDao {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			connection = DriverManager.getConnection(
 					"jdbc:mysql://localhost:3307/javafx?serverTimezone=UTC", "root", "1234");
+			
 			System.out.println("DB연동성공");
 		} catch (Exception e) {System.out.println("DB연동실패");}
 		
